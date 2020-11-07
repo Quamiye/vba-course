@@ -1,0 +1,92 @@
+<html lang="fr">
+<head>
+	<title>Evenements</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../Pagesdivers/About.html" target="_top">A propos</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 9 - Les évènements</div>
+	<div class="para">Un <strong>événement</strong> est une action reconnue par un objet. La reconnaissance d’un événement par un objet permet de déclencher l’exécution d’une procédure lorsque cet événement survient. Un clic souris ou la frappe d’une touche au clavier sont des exemples d’événements qui peuvent être interprétés par du code VBA.</div>
+	<div class="para">Pour qu’un objet réponde à un événement, il faut écrire du code VBA dans la procédure associée à l’événement considéré. Ces procédures sont stockées dans les modules de codes associés aux objets concernés.</div>
+	<div class="para">Nous verrons plus loin que les contrôles placés dans une boîte de dialogue (boutons de commande, zones de texte, ...) peuvent répondre à des événements. Les classeurs et les feuilles de calcul peuvent également répondre à des événements. Pour qu’un objet réponde à un événement, il faut écrire du code VBA dans la procédure associée à l’événement considéré.</div>
+
+	<div class="coursh3">Exercice guidé</div>
+		<div class="para">L'image parlant mieux que les mots, un exercice guidé illustrera ce chapitre. Suivez le pas à pas pour ne rien oublier.</div>
+		<div class="para">Il s'agit d'écrire une procédure qui détecte chaque nouvelle plage de cellules ou cellule sélectionnée par l’utilisateur dans la feuille de calcul FEUIL1 du classeur nommé ici pour l’exemple TEST-MACRO.XLS et colorie son fond en bleu.</div>
+		<div class="para">Avant d’écrire cette procédure, il faut :</div>
+		<div class="list">
+			<li>identifier l’objet dont on veut traiter l’événement. Dans notre cas, il s’agit de la feuille de calcul <span class="function">FEUIL1</span> qui est un objet <span class="function">Worksheet</span> ;</li>
+			<li>puis identifier l’événement à traiter dans la liste des événements associés à l’objet considéré. Dans notre cas, on s’intéresse à chaque nouvelle sélection d’une plage de cellules ou cellule dans la feuille de calcul, ce qui correspond à l’événement <span class="function">SelectionChange</span> ;</li>
+			<li>enfin, écrire le code VBA approprié dans la procédure associée à l’événement choisi.</li>
+		</div> <!--fin de la liste-->
+		<div class="para">Pour cela, nous allons :</div>
+		<div class="para"><strong>1)</strong> Ouvrir le classeur <span class="function">TEST-MACRO.XLS</span>, puis l’éditeur de Visual Basic ;</div>
+		<div class="para"><strong>2)</strong> Dans l’explorateur de projets, sélectionner la feuille de calcul <span class="function">FEUIL1</span> et ouvrir son module de code à l’aide du clic droit de la souris et de l’option <span class="capital">CODE</span>.</div>
+		<div class="para"><strong>3)</strong> Dans la liste de gauche au sommet du module de code, sélectionner l’option <span class="function">WORKSHEET</span>. Dans la liste de droite au sommet du module de code, sélectionner l’événement <span class="function">SelectionChange</span>.</div>
+		<div class="paraImg"><img src="../images/Evenements/SelectionChange.png" alt="SelectionChange" style="margin:10px 0; max-width:100%;"/></div>
+		<div class="para">On voit alors apparaître dans le module de code l’en-tête de procédure suivant :</div>
+		<div class="codeExample"><span class="keyWord">Private Sub</span> Worksheet_SelectionChange(<span class="keyWord">ByVal</span> Target <span class="keyWord">As</span> Range)</div>
+		<!--<div class="Remark">L’instruction <span class="function">ByVal</span> ajoutée automatiquement devant chaque argument des fonctions générées par Excel VBA signifie que ces arguments sont passés "par valeur".</div>-->
+		<div class="Remark">Cet en-tête de procédure généré automatiquement ne doit pas être modifié. La variable Target correspond à la plage de cellules sélectionnée par l'utilisateur.</div>
+		<div class="para">On veut à présent écrire les instructions VBA permettant de colorier le fond d’une cellule ou d’une plage de cellules en bleue. Pour trouver ces instructions, il existe deux possibilités :</div>
+		<div class="list">
+			<li>utiliser l’enregistreur de macro ;</li>
+			<li>explorer les propriétés de l’objet <span class="function">Range</span> pour trouver comment modifier sa couleur de fond.</li>
+		</div> <!--fin de la liste-->
+		<div class="Remark">Le moyen le plus facile pour découvrir les instructions nécessaires pour accomplir une opération donnée consiste à utiliser l’enregistreur de macro.</div>
+		<div class="para"><strong>4)</strong> Aller dans EXCEL et enregistrer une nouvelle macro <span class="function">MacroCouleurFond</span> qui permet de modifier la couleur de fond d’une cellule.</div>
+		<div class="para"><strong>5)</strong> Retourner dans l’éditeur de Visual Basic et étudier le code de la macro <span class="function">MacroCouleurFond</span>.</div>
+		<div class="para">L’instruction <span class="function">Selection.Interior.ColorIndex = 41</span> semble intéressante puisqu’elle parle de couleur. Pour obtenir de l’aide sur cette instruction, sélectionner dans le code la propriété <span class="function">ColorIndex</span> et appuyer sur la touche F1. L’aide en ligne de l’éditeur de Visual Basic permet d’obtenir les informations suivantes :</div>
+		<div class="list">
+			<li>La propriété <span class="function">Interior</span> d’un objet Range renvoie un objet Interior qui correspond à la couleur de fond d’une plage de cellules.</li>
+			<li>La propriété <span class="function">ColorIndex</span> d’un objet Interior permet de déterminer la couleur de fond.</li>
+		</div> <!--fin de la liste-->
+		<div class="para"><strong>6)</strong> Retourner dans le module de code associé à la feuille de calcul <span class="function">FEUIL1</span> et compléter la procédure <span class="function">Worksheet_SelectionChange</span> comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> Worksheet_SelectionChange(<span class="keyWord">ByVal</span> Target <span class="keyWord">As</span> Range)</p>
+			<p style="padding-left:20px;">Target.Interior.ColorIndex = 41
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">La variable <span class="function">Target</span> qui est un objet <span class="function">Range</span> représente la plage de cellules ou la cellule sélectionnée par l’utilisateur dans la feuille de calcul <span class="function">FEUIL1</span>.</div>
+		<div class="para"><strong>7)</strong> Enregistrer la procédure et retourner dans EXCEL pour la tester. Pour cela, sélectionner une plage de cellules ou cellule et vérifier que sa couleur de fond devient bleue.</div>
+		
+		
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="margin-top:50px;">Ce chapitre est terminé, à vous de jouer ! &#139; <a href="../Exercices/ex_Evenements.html" target = "_blanc" class="important">lien vers les exercices</a> &#155;</div>
+		
+	<ul id="nav">		
+		<li id="navPrevious"><a href="Boucles.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="EntreesSorties.html">&raquo;</a></li>
+	</ul>		
+		
+</div> <!-- fin du cours -->
+</body>
+</html>

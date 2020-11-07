@@ -1,0 +1,146 @@
+<html lang="fr">
+<head>
+	<title>Variables</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 4 - Stocker de l'information : les variables et les constantes</div>
+	
+	<div class="coursh3">La déclaration des variables</div>
+		<div class="para">Une variable permet de stocker une valeur pouvant être modifiée au cours de l’exécution d’un programme.</div>
+		<div class="para">Le mot clé <span class="function">Dim</span> permet de <span class="important" data-txt="Indiquer l'existence d'une entité informatique sans la créer (Wikipédia)">déclarer</span> explicitement une variable :</div>
+		<div class="codeExample"><span class="keyWord">Dim</span> NomVariable</div>
+		<div class="para">où <span class="function">NomVariable</span> est une suite de caractères formée avec des lettres, des chiffres ou le caractère souligné _ (ou tiret-du-huit pour les non initiés).</div>
+		<div class="para">Le premier caractère est obligatoirement une lettre. Les minuscules sont distinguées des majuscules.</div>
+		<div class="para">En VBA la déclaration des variables n’est pas obligatoire. Néanmoins, il est préférable de forcer la déclaration explicite des variables notamment pour faciliter le contrôle du comportement du programme et traquer les erreurs de frappe très fréquentes en programmation.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> MacroTestVariable()</p>
+			<p style="padding-left:20px;">valeur = Range("A1").Value</p>
+			<p style="padding-left:20px;">Range("B1").Value = valleur</p>
+			<p><span class="keyWord">End Sub</span></p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">Dans cet exemple, quelle que soit la valeur de la cellule A1, cette macro n’écrira rien dans la cellule B1. Pourtant VBA ne détecte aucune erreur dans le code. Il considère qu’il y a deux variables distinctes valeur et valleur.</div>
+		<div class="para">Il est donc préférable de forcer la déclaration explicite des variables en VBA. Pour ce faire, il suffit de placer l’instruction <span class="function">Option Explicit</span> en première ligne des modules de code avant toutes procédures et toutes fonctions.</div>
+		<div class="para">Si maintenant on reprend l’exemple précédent en forçant la déclaration des variables :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Option Explicit</span></p>
+			<p><span class="keyWord">Sub</span> MacroTestVariable()</p>
+			<p style="padding-left:20px;">valeur = Range("A1").Value</p>
+			<p style="padding-left:20px;">Range("B1").Value = valleur</p>
+			<p><span class="keyWord">End Sub</span></p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">VBA détecte une erreur de compilation car la variable <span style="font-weight:bold;">valleur</span> n’est pas définie.</div>
+		<div class="paraImg"><img src="../images/Variables/ErreurCompil.png" alt="ErreurCompil" style="max-width:100%;"></div>
+		<div class="para">Pour ajouter automatiquement l’instruction <span class="function">Option Explicit</span> à tous les nouveaux modules de code créés, il faut cliquer sur l'onglet <span class="capital">OUTILS - OPTIONS</span> et cocher la case <span class="capital">DECLARATION DES VARIABLES OBLIGATOIRE</span>.</div>
+	
+	<div class="coursh3">Le type des variables</div>
+		<div class="para">La plupart des langages de programmation imposent de déterminer le type de données qui peut être stockée dans une variable lors de sa déclaration. En VBA, ce n’est pas obligatoire. Par défaut, une variable non typée est du type <span class="function">Variant</span>, qui permet de stocker n’importe quel type de données.</div>
+		<div class="para">Dans un souci d’efficacité du code, il est préférable de typer ses variables. Une variable de type <span class="function">Variant</span> prend plus de mémoire que n’importe quel autre type et utilise plus de ressource système pour son traitement (identification du type effectif de la variable et éventuellement conversion).</div>
+		<div class="para">La déclaration du type d’une variable se fait comme suit :</div>
+		<div class="codeExample"><span class="keyWord">Dim</span> NomVariable <span class="keyWord">As</span> Type</div>
+		<div class="para">Les différents types de données disponibles en VBA sont les suivants :</div>
+		<div class="Remark">Selon leur type, les variables ne sont pas initialisées avec la même valeur.</div>
+		<div class="para" style="margin-left:10%;">
+			<li><span class="function">Byte, Integer</span> et <span class="function">Long</span> pour les entiers, initialisées à 0 ;</li>
+			<li><span class="function">Single, Double</span> et <span class="function">Currency</span> pour les réels, initialisées à 0 ;</li>
+			<li><span class="function">Boolean</span> pour les booléens (<span class="function">True</span> ou <span class="function">False</span>), initialisées à <span class="function">False</span> ;</li>
+			<li><span class="function">String</span> pour les chaînes de caractères, initialisées à "" (une chaîne vide) ;</li>
+			<li><span class="function">Date</span> pour les dates, initialisées à 00:00:00 ;</li>
+			<li><span class="function">Object</span> pour faire référence à un objet (une plage de cellule, une feuille de calcul, etc...) ;</li>
+			<li><span class="function">Variant</span> pour n’importe quel type, initialisées à "" (une chaîne vide).</li>
+		</div><!--fin de la liste-->
+		<div class="Warning">Les variables déclarées <b>implicitement</b>, donc de type <span class="function">Variant</span>, sont initialisées à "" (une chaîne vide).</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Dim</span> Nom <span class="keyWord">As</span> String </p>
+			<p>Nom = "Jean " & "Dupond" <span class="comment">'& : concatène les chaînes de caractères</span></p>
+			<p><span class="keyWord">Dim</span> Age <span class="keyWord">As</span> Byte</p>
+			<p>Age = 23</p>
+			<p><span class="keyWord">Dim</span> MaPlage <span class="keyWord">As</span> Object <span class="comment">'variable de type Object</span></p>
+			<p><span class="keyWord">Set</span> MaPlage = Range("A1:B5") <span class="comment">'Set : pour affecter un objet</span></p>
+		</div><!--fin de l'exemple-->
+		
+	<div class="coursh3">La portée des variables</div>
+		<div class="para">La portée d’une variable définit quelles procédures ou fonctions peuvent utiliser cette variable. Les variables déclarées à l’intérieur d’une procédure ou d’une fonction ne sont accessibles qu’à l’intérieur de cette procédure ou de cette fonction.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> InitialiseAge()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> Age <span class="keyWord">As</span> Integer</p>
+			<p style="padding-left:20px;">Age = 25
+			<p><span class="keyword">End Sub</span></p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">La variable <span class="function">Age</span> n’est accessible que dans la procédure <span class="function">InitialiseAge</span>.</div>
+		<div class="Warning">Pour qu’une variable soit accessible à l’ensemble des procédures et des fonctions d’un module, elle doit être déclarée au début du module à l’extérieur de toute procédure et de toute fonction (et ne pas être re-déclarée dans celles-ci !) avec le mot clé <span class="function">Public</span>.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Public</span> Age <span class="keyWord">As</span> Integer</p>
+			<p><span class="keyWord">Sub</span> ModifieAge()</p>
+			<p style="padding-left:20px;">Age = 27
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		
+		
+	<div class="coursh3">Utiliser une procédure dans une autre</div>
+		<div class="para">Pour utiliser une procédure dans une autre, il faut utiliser le mot clé <span class="function">Call</span> suivi du nom de la procédure que l’on souhaite utiliser. Par exemple, ci-dessous, la procédure <span class="function">PrintValue</span> est utilisée dans la procédure <span class="function">TestPrintValue</span>.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> PrintValue(Value <span class="keyWord">As</span> Double)</span>
+			<p style="padding-left:20px;">Range("B1").Value = Value</p>
+			<p class="keyword">End Sub</p>
+			</br>
+			<p><span class="keyWord">Sub</span> TestPrintValue()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> PrintValue(1.22)</p>
+			<p class="keyword">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="Warning">Seules les procédures sans arguments sont exécutables directement par les menus ou icônes. Toute procédure ayant des arguments devra donc être appelée dans une autre procédure pour pouvoir être exécutée. Dans l’exemple précédent et en l’absence d’autres procédures, la procédure <span class="function">PrintValue</span> ne pourra être exécutée que par l’intermédiaire de la procédure <span class="function">TestPrintValue</span>.</div>
+	
+	<div class="coursh3">La déclaration des constantes</div>
+		<div class="para">Une constante permet d’attribuer un nom à une valeur fixe. La déclaration d’une constante se fait à l’aide du mot clé <span class="function">Const</span> comme suit :</div>
+		<div class="codeExample"><span class="keyWord">Const</span> NomConstante [<span class="keyWord">As</span> Type] = valeur</div>
+		<div class="para">Les crochets indiquent que la déclaration du type n'est pas obligatoire. Vous devez les enlever si vous déclarez le type de votre variable.</div>
+		<div class="Remark">Une constante a la même portée qu’une variable.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="codeExample"><span class="keyWord">Public Const</span> Pi <span class="keyWord">As</span> Single = 3.14159265358979</div>
+		
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="margin-top:50px;">Ce chapitre est terminé, à vous de jouer ! &#139; <a href="../Exercices/ex_Variables.html" target = "_blanc" class="important">lien vers les exercices</a> &#155;</div>
+	
+	
+	<ul id="nav">		
+		<li id="navPrevious"><a href="AccesFonctionnalites.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="Conditionnels.html">&raquo;</a></li>
+	</ul>	
+
+	<script type="text/javascript" src="../infobulle.js"></script>
+	
+</div> <!-- fin du cours -->
+</body>
+</html>

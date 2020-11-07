@@ -1,0 +1,121 @@
+<html lang="fr">
+<head>
+	<title>Accès aux fonctionnalités</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 3 - Accès aux fonctionnalités d’EXCEL depuis VBA</div>
+	<div class="para">Le langage de programmation VBA dépend de <div class="important" data-txt="Word, Excel, Access...">l’application</div> <span class="capital">MICROSOFT OFFICE</span> à laquelle il est attaché. Chaque application de <span class="capital">MICROSOFT OFFICE</span> possède un ensemble d’objets organisés. Cette organisation s’appelle le <b>modèle objet</b> de l’application. Comme nous le détaillerons dans les sections suivantes, dans Excel, les objets manipulés sont des classeurs, des feuilles de calcul, des plages, des cellules...</div>
+	<div class="coursh3">Les objets</div>
+		<div class="para">VBA est un langage de programmation orientée objet attaché à une application. Tout est objet. En informatique, un objet est une entité nommée possédant des caractéristiques propres (des propriétés) et actions propres (des méthodes).</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple d'objets</span> :</div>
+		<div class="list">
+			<li>Excel est un objet <span class="function">Application</span> ;</li>
+			<li>un classeur est un objet <span class="function">Workbook</span> ;</li>
+			<li>une feuille de calcul est un objet <span class="function">Worksheet</span> ;</li>
+			<li>une plage de cellules (qui peut se limiter à une cellule) est un objet <span class="function">Range</span>.</li>
+		</div><!--fin de la liste-->
+	
+	<div class="coursh3">Les collections</div>
+		<div class="para">De nombreux objets appartiennent à une <div class="important" data-txt="La collection étant elle-même un objet">collection d'objets</div>.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple de collections</span> :</div>
+		<div class="list">
+			<li>Dans l’objet <span class="function">Application</span>, il existe une collection <span class="function">Workbooks</span> qui contient tous les objets <span class="function">Workbook</span> ouverts.</li>
+			<li>Chaque objet <span class="function">Workbook</span> comporte une collection <span class="function">Worksheets</span> qui contient tous les objets <span class="function">Worksheet</span> de ce classeur.</li>
+			<li>Chaque objet <span class="function">Worksheet</span> contient des objets <span class="function">Range</span>.</li>
+		</div> <!--fin de la liste-->
+	
+	<div class="coursh3">L’accès aux objets</div>
+		<div class="para">VBA permet de faire référence à un objet de différentes façons. Par exemple, pour faire référence à une plage de cellules donnée, il faut utiliser l’objet <span class="function">Range</span>.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> : <span class="function">Range("A1:B4")</span> permet de faire référence à la plage de cellules A1:B4 et renvoie un objet <span class="function">Range</span>.</div>
+		<div class="Remark">Pour faire référence à un objet dans une collection, on peut soit utiliser le numéro de sa position dans la collection, soit son nom.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="list">
+			<li><span class="function">Worksheets(1)</span> permet de faire référence à la première feuille de calcul du classeur actif et renvoie un objet <span class="function">Worksheet</span>.</li>
+			<li><span class="function">Workbooks("Classeur1.xls").Sheets("Feuil1")</span> permet de faire référence à la feuille de calcul de nom Feuil1 du classeur de nom Classeur1.xls et renvoie un objet <span class="function">Worksheet</span>.</li>
+			<li><span class="function">Workbooks("Année2006").Worksheets("Mars").Range("B2")</span> désigne la cellule B2 de la feuille Mars du classeur Année2006.</li>
+			<li><span class="function">Sheets("Mars").Range("B2")</span> désigne la cellule B2 de la feuille Mars du classeur actif (ouvert et affiché).
+		</div> <!--fin de la liste-->
+		<div class="Remark">La notation <span class="function">Workbooks("Classeur1.xls").Sheets("Feuil1")</span> est une notation raccourcie pour <span class="function">Application.Workbooks("Classeur1.xls").Worksheets("Feuil1")</span>. L’objet <span class="function">Application</span> peut, en général, être omis.</div>
+		<div class="para">Les références aux cellules peuvent être :</div>
+		<div class="list">
+			<li><strong>absolues</strong> : <span class="function">Range("B2")</span> désigne la cellule B2 de la feuille active ;</li>
+			<li><strong>relatives</strong> à la cellule d'origine : <span class="function">ActiveCell.Offset(2,-1)</span> désigne la cellule située 2 lignes en bas (- pour plus haut) et une colonne à gauche (+ pour à droite) de la cellule active.</li>
+		</div> <!--fin de la liste-->
+		
+		<div class="para">Voici un <a href="../Exercices/ex_AccesFonctionnalites.html#exo1" target = "_blanc" class="important">premier exercice</a> sur ces notions. Il faut faire l'exercice 1 avant d'avancer.</div>
+		
+	<div class="coursh3">Les propriétés des objets</div>
+		<div class="para">Chaque objet est défini par un ensemble de propriétés, qui représentent les caractéristiques de l’objet. Pour faire référence à une propriété d’un objet donné, il faut utiliser la syntaxe <span class="function">Objet.Propriété</span>.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="list">
+			<li>La propriété <span class="function">Value</span> de l’objet <span class="function">Range</span> désigne la valeur de l’objet spécifié.</li>
+			<div class="para"><span class="function">Range("A1").Value = "AgroParisTech"</span> affecte la valeur AgroParisTech à la cellule A1.</div>
+			<li>La propriété <span class="function">ActiveCell</span> de l’objet <span class="function">Application</span> renvoie un objet <span class="function">Range</span>, qui fait référence à la cellule active de la feuille de calcul.</li>
+			<div class="para"><span class="function">ActiveCell.Font.Bold = True</span> permet d’affecter le style gras à la cellule sélectionnée (<span class="function">Font</span> est une propriété de l’objet <span class="function">Range</span> qui retourne un objet <span class="function">Font</span> contenant les attributs de police (taille, couleur, style, ...) de l’objet <span class="function">Range</span>. <br/><span class="function">Bold</span> est une propriété booléenne de l’objet <span class="function">Font</span> qui correspond au style gras.</div>
+			<li>La propriété <span class="function">Selection</span> de l’objet <span class="function">Application</span> renvoie l’objet sélectionné dans la fenêtre active. Le type de l'objet renvoyé dépend de la sélection en cours.
+		</div> <!--fin de la liste-->
+		<div class="Warning">La propriété <span class="function">ActiveCell</span> ne permet de faire référence qu’à une seule cellule, alors que la propriété <span class="function">Selection</span> permet de faire référence à une plage de cellules.</div>
+	
+	<div class="para">Voici <a href="../Exercices/ex_AccesFonctionnalites.html#exo2" target = "_blanc" class="important">deux autres exercices</a> sur ces notions. Il faut faire les exercices 2 et 3 avant d'avancer. </div>
+	
+	<div class="coursh3" id="methode">Les méthodes des objets</div>
+		<div class="para">Les méthodes représentent les actions qui peuvent être effectuées par un objet. Pour faire référence à une méthode d’un objet donné, il faut utiliser la syntaxe <span class="function">Objet.Méthode</span> analogue à la syntaxe d’accès aux propriétés des objets.</div>
+		<div class="para"><u>Exemple</u> : La méthode <span class="function">Select</span> de l’objet <span class="function">Range</span> permet de sélectionner une cellule ou une plage de cellules.<br/>
+			<span class="function">Range("A1").Select</span> sélectionne la cellule A1.</div>
+		
+	<div class="Forbiden">Attention, il faut bien distinguer la propriété de la méthode !<br/>
+		La propriété est une information associée à l'objet, alors que la méthode est comme une fonction qui renvoie une valeur ou modifie l'objet appelé par la méthode.</div>
+		
+	<div class="para">Voici les<a href="../Exercices/ex_AccesFonctionnalites.html#exo4" target = "_blanc" class="important"> autres exercice</a> sur ces notions, à faire avant de passer au chapitre suivant.</div>
+
+	
+	<div class="barre" style="margin:40px 0;"></div>
+		
+	<ul id="nav">		
+		<li id="navPrevious"><a href="EnvironnementVBE.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="Variables.html">&raquo;</a></li>
+	</ul>
+	
+	<script type="text/javascript" src="../infobulle.js"></script>
+
+</div> <!-- fin du cours -->
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+<html lang="fr">
+<head>
+	<title>Environnement VBE</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 2 - L’environnement de développement Visual Basic Editor</div><br />
+
+	<div class="para">Comme indiqué précédemment, l’enregistreur de macros permet de créer rapidement des programmes VBA simples. Pour aller plus loin, il faut connaître le langage VBA et apprendre à écrire soi-même les instructions qui correspondent aux actions que l’on souhaite faire réaliser par notre programme. </div>
+	<div class="para">Pour cela on dispose sous Excel d’un environnement spécifique appelé <span class="capital">Visual Basic Editor</span> qui s’exécute dans une fenêtre différente de celle d’Excel. Cet environnement permet de modifier des codes existants (produits par exemple par l’enregistreur de macros), de créer de nouveaux programmes à partir de rien, d’organiser ses programmes suivants leurs rôles dans des <div class="important" data-txt="Fichiers contenant des procédures ou des fonctions">modules</div>, de créer des <div class="important" data-txt="Ensemble nommé de lignes de code ne renvoyant pas de valeur.">procédures</div> et des <div class="important" data-txt="Ensemble nommé de lignes de code renvoyant une valeur">fonctions</div>, qui pourront être communes à différents programmes ou utilisables directement dans les feuilles de calcul, …</div>
+	<div class="para">L’environnement VBE s’ouvre en cliquant sur le bouton ci-dessous :</div>
+	<div class="paraImg"> <img src="../images/EnvironnementVBE/OuvertureVBE.png" alt="OuvertureVBE" style="max-width:100%"/></div>
+	<div class="para">Cette fenêtre s’ouvre alors et vous donne accès à de nouvelles fonctionnalités : </div>
+	<div class="paraImg"><img src="../images/EnvironnementVBE/VBE.PNG" alt="VBE" style="margin:10px 0; max-width:100%;"/></div> 
+	<div class="para"> Cette fenêtre se décompose notamment en trois parties : </div>
+	<div class="list">
+		<li>affichage, écriture et modification des fichiers de programmes disponibles ou modules de codes</li>
+		<li>affichage des propriétés du module de code sélectionné </li>
+		<li>explorateur de l’ensemble des modules de codes </li>
+	</div> <!--fin de la liste-->
+	<div class="para">Les particularités de ces zones sont détaillées dans les sections suivantes.</div>
+
+	<div class="coursh3">Fenêtre de lecture, écriture et modification d’un programme</div>
+		<div class="para">Toutes les instructions VBA sont enregistrées dans un module de code qui est affiché dans la fenêtre principale de VBE à droite.</div>
+		<div class="paraImg"><img src="../images/EnvironnementVBE/fenetreCode.PNG" alt="FenetreCode" style="margin:10px auto; max-width:100%"/></div>
+		<div class="para">Cette fenêtre se comporte comme un éditeur de texte classique avec quelques fonctionnalités supplémentaires telles que la coloration du texte en fonction de la nature de ce qui est écrit : </div>
+		<div class="para">- Les <div class="important" data-txt="Mot ayant une signification spéciale, qui ne peut pas être utilisé comme identificateur de classe, de méthode ou de variable">mots clés</div> du langage sont affichés en bleu. Par exemple : Sub (mot clé de début de procédure), True (constante booléenne), … </div>
+		<div class="para">- Les <div class="important" data-txt="Texte non interprété, utile pour comprendre ce que fait le programme">commentaires</div> sont affichés en vert. Par exemple : « Macro test pour exemple ». Ils sont précédés d’une apostrophe.</div>
+		
+		<div class="para">Un programme est une suite d’<div class="important" data-txt="Une instruction est une ligne de code qui exécute une tâche précise.">instructions</div>. Elles sont généralement écrites sur une seule ligne.</div>
+		<div class="para"><span style="text-decoration:underline;">Exemple</span> :</div>
+		<div class="codeExample">Range("A1").Select</div>
+		<div class="para">Cette instruction permet de sélectionner la cellule nommée A1 dans le classeur courant.</div>
+		<div class="para">Une procédure commence par le mot clé <span class="function">Sub</span> suivi du nom de la procédure et d’une liste d'<div class="important" data-txt="Paramètres d'entrée d'une procédure ou d'une fonction">arguments</div> entre parenthèses, qui peut être vide. Elle se termine par le mot clé <span class="function">End Sub</span>. Une procédure a la syntaxe suivante :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> NomProcédure(argument_1,..., argument_n) </p>
+			<p style="padding-left:20px;">Instructions</p>
+			<p style="padding-left:20px;">...</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="Remark">L’enregistreur de macro ne génère que des procédures sans arguments. </div>
+		<div class="para">Dans l’exemple précédent, la fenêtre d’affichage de modules de codes affiche le module nommé <span class="function">Module1</span> (<i>cf.</i> bandeau de la fenêtre). Ce module contient une seule macro nommée <span class="function">Macro1</span>.</div>
+		<div class="para">Dans cette macro, il y a 4 lignes de commentaires, commençant par une apostrophe puis 6 instructions : </div>
+		<div class="list">
+			<li>L'instruction <span class="function">Range("A1").Select</span> sélectionne (Select) une cellule (Range) désignée par sa ligne (1) et sa colonne (A).</li>
+			<li>L'instruction <span class="function">ActiveCell.FormulaR1C1</span> affecte une formule à la cellule active (ActiveCell).</li>
+			<li>L'instruction <span class="function">Selection.Font</span> permet d’appliquer un format de police (<span class="function">Font.Bold</span> ou <span class="function">Font.Italic</span>) à la cellule sélectionnée (Selection).</li>
+		</div> <!--fin de la liste-->
+		<div class="para">Lorsque cette macro est lancée on observe donc dans Excel le résultat suivant :</div>
+		<div class="paraImg"><img src="../images/EnvironnementVBE/Resultat.PNG" alt="ResultatVBE" style="border:solid 1px; max-width:100%;"/></div>
+		<div class="para">Les macros produites par l’intermédiaire de l’enregistreur de macro sont stockées dans des modules de codes. Un module de code peut contenir plusieurs macros ou fonctions.</div>
+
+	<div class="coursh3">Créer et supprimer une procédure directement dans VBE</div>
+		<div class="para">Pour créer une nouvelle procédure directement dans VBE, sans passer par l’enregistreur de macros, il suffit de taper dans l’éditeur de texte de VBE le mot clé <span class="function">Sub</span> dans un module de code et en dehors de toute autre procédure, suivi du nom que vous voulez attribuer à votre macro.Vous pouvez ensuite ajouter les arguments entre parenthèses.</div>
+		<div class="para">Lorsque vous passez à la ligne, le mot clé <span style="font-family:Courier New">End Sub </span>délimitant la procédure est automatique ajouté. Vous n’avez alors plus qu’à compléter les instructions selon la tâche qu’elle doit remplir.</div>
+		<div class="para">Pour supprimer une procédure directement dans VBE, il vous suffit de sélectionner le texte correspondant entre le mot clé <span class="function">Sub</span> et le mot clé <span class="function">End Sub</span> et de le supprimer.</div>
+		<div class="Warning">Pour que les programmes produits soient conservés, il faut les sauvegarder en cliquant sur l'onglet <span class="capital">FICHIER - ENREGISTRER</span> ou en tapant le raccourci clavier <span class="capital">CTRL+S</span>.</div>
+
+	<div class="coursh3">Affichage et modification des propriétés d’un module de code</div>
+		<div style="height:276px; margin-bottom:10px;"> <!-- une div de la hauteur de l'image pour pas que le texte d'en dessous remonte à côté de celle ci -->
+			<div class="para"><img src="../images/EnvironnementVBE/FenetreModules.PNG" alt="FenetreModules" style="float:left; margin-right:10px; max-width:100%;"/></div>
+			<div class="para">La fenêtre en bas à gauche de l’environnement VBE permet d’afficher et de modifier les propriétés du module sélectionné.</div>
+			<div class="para">On peut constater qu’un module est uniquement caractérisé par un nom que l’on peut modifier par simple saisie dans la case se situant à droite du mot clé (Name).</div>
+		</div> <!-- fin de la div image -->
+
+	<div class="coursh3">Retrouver un programme enregistré : l’explorateur de projets</div>
+		<div class="para">A chaque classeur Excel ouvert est associé un projet VBA.</div>
+		<div class="para">L'explorateur de projets (partie en haut à gauche de la fenêtre VBE) affiche une liste hiérarchisée des différents projets VBA associés aux classeurs Excel ouverts.</div>
+		<div class="para">Un projet VBA associé à un classeur regroupe les éléments du classeur, comme ses feuilles de calcul, les procédures et les fonctions associées à ce classeur et stockées dans un ou plusieurs modules de code.</div>
+		<div style="height:211px; margin-bottom:10px;"> <!-- une div de la heuteur de l'image pour pas que le texte d'en dessous remonte à côté de celle ci -->
+			<img src="../images/EnvironnementVBE/explorateur.PNG" alt="Explorateur" style="float:left; margin-right:10px; max-width:100%;"/>
+			<div class="para">Par exemple, le projet VBA associé au <span class="function">Classeur1.XLS</span> est composé de deux dossiers :</div>
+			<div class="para">- le dossier <span class="function">Microsoft Excel Objects</span> qui contient les éléments attachés au projet : le <span class="function">Classeur1.XLS (ThisWorkbook)</span> et ses feuilles de calcul <span class="function">Feuil1, Feuil2</span> et <span class="function">Feuil3</span> ; </div>
+			<div class="para">- le dossier <span class="function">Modules</span> qui contient les modules de code du projet : le module <span class="function">MODULE1</span> qui contient la macro <span class="function">MACRO1</span>. </div>
+		</div> <!-- fin de la div image -->
+		<div class="para">L’explorateur de projets permet, à l’aide du clic droit de la souris, d’ouvrir un module de code (option <span class="capital">CODE</span>), d’insérer un nouveau module de code (option <span class="capital">INSERTION</span>) ou d’en supprimer un (option <span class="capital">SUPPRIMER &lsaquo; NOMMODULE &rsaquo;</span>).</div>
+		<div style="height:407px; margin-bottom : 10px;"> <!-- une div de la hauteur de l'image pour pas que le texte d'en dessous remonte à côté de celle ci -->
+			<img src="../images/EnvironnementVBE/clicdroit.png" alt="clicdroit"  style="float:left; margin-right:10px; max-width:100%;"/>
+			<div class="para">L’ouverture d’un module de code peut également se faire par double-clic sur celui-ci dans l’explorateur de projets. </div>
+			<div class="para">La commande <span class="capital">INSERTION MODULE</span> permet également d’insérer un nouveau module de code. </div>
+			<div class="para">On peut insérer autant de modules de code qu’on le désire en fonction des besoins recensés. Dans la pratique, on cherche à regrouper dans un même module tous les éléments de programmes qui se rapportent à un ensemble de fonctionnalités donné. Par exemple, si l’on crée des fonctions de calcul mathématiques, on les regroupera dans un même module que l’on pourrait nommer Maths.</div>
+		</div> <!-- fin de la div image -->
+	
+	<div class="coursh3">Exécuter directement dans VBE une procédure sans argument</div>
+		<div class="para">Les procédures avec arguments et les fonctions ne peuvent être exécutées que par d’autres procédures ou fonctions et n'apparaissent pas dans la liste des macros de la boîte de dialogue <span class="capital">MACRO</span>.</div>
+		<div class="para">Pour exécuter une procédure sans argument, positionnez le curseur dessus et cliquer sur l’onglet <span class="capital">EXECUTION - EXECUTER SUB/USERFORM (F5)</span> en haut de la fenêtre ou cliquer sur l’icône <img src="../images/EnvironnementVBE/play.PNG" alt="play">.</div>
+		<div class="para">Pour arrêter l'exécution d’une procédure sans argument si une erreur survient, cliquez sur l’onglet <span class="capital">EXECUTION - REINITIALISER</span> en haut de la fenêtre ou cliquer sur l’icône <img src="../images/EnvironnementVBE/stop.PNG" alt="stop">.</div>
+		<div class="Warning">Seules les procédures sans argument peuvent être exécutées directement par ces méthodes. </div>
+		
+	
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="margin-top:50px;">Ce chapitre est terminé, à vous de jouer ! &#139; <a href="../Exercices/ex_EnvironnementVBE.html" target = "_blanc" class="important">lien vers les exercices</a> &#155;</div>	
+	
+	<ul id="nav">		
+		<li id="navPrevious"><a href="PremiereMacro.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="AccesFonctionnalites.html">&raquo;</a></li>
+	</ul>	
+
+	<script type="text/javascript" src="../infobulle.js"></script>
+	
+</div><!--fin du cours-->
+</body>
+</html>

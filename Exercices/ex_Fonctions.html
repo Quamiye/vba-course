@@ -1,0 +1,207 @@
+<html lang="fr">
+<head>
+	<title>Exercices chap 7</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Définir ses propres fonctions</div>
+	<div class="coursh2">Exercices</div>
+	
+	<div class="coursh3" id="exo1">Exercice 1</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une fonction qui permet de calculer la surface d’un rectangle (hauteur*largeur) et la tester dans Excel.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo1Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo1correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo1Help">
+		<div class="para">Il faut renseigner la hauteur et la longueur dans les arguments de la fonction.</div>
+		<div class="para">Le calcul doit être renseigné dans une variable qui porte le même nom que la fonction.</div>
+		<p><a href="#exo1" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo1correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Function</span> SurfaceRectangle(hauteur <span class="keyWord">As</span> Double, largeur <span class="keyWord">As</span> Double) <span class="keyWord">As</span> Double
+			<p style="padding-left:20px;">SurfaceRectangle = hauteur * largeur
+			<p class="keyWord">End Function</p>
+		</div>
+		<p><a href="#exo1" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex1-->
+	
+	
+	<div class="coursh3" id="exo2">Exercice 2</div>
+		<!--énoncé-->
+		<div class="para">En s’aidant éventuellement de l’aide en ligne de l’éditeur de Visual Basic mais sans tenter de l’exécuter, expliquer ce que fait cette procédure.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> QueFaisJe(Sh <span class="keyWord">As</span> Object)
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> NbFeuilles <span class="keyWord">As</span> Integer
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> n <span class="keyWord">As</span> Integer
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> nom <span class="keyWord">As</span> String
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> chaine <span class="keyWord">As</span> String
+			<p style="padding-left:20px;">NbFeuilles = ThisWorkbook.Sheets.Count
+			<p style="padding-left:20px;">n = Sh.Index
+			<p style="padding-left:20px;">nom = Sh.Name
+			<p style="padding-left:20px;">chaine = "Feuille " & n & "/" & NbFeuilles & " : " & nom
+			<p style="padding-left:20px;">Range("A1").Value = chaine
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo2Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo2correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo2Help">
+		<div class="para">Les noms des variables sont très explicites. Il en est de même pour les méthodes associées à ces variables.</div>
+		<p><a href="#exo2" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo2correct">
+		<div class="para">Cette procédure compte le nombre de feuilles du classeur actif (<span class="function">NbFeuilles</span>), vérifie l'index et le nom de la feuille active (<span class="function">Sh.Index</span> et <span class="function">Sh.name</span>) et rentre toutes ces données sous la forme d'une chaîne de caractères dans la cellule A1.</div>
+		<p><a href="#exo2" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex2-->
+	
+		
+	<div class="coursh3" id="exo3">Exercice 3</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une procédure permettant de lancer la procédure <span class="function">QueFaisJe</span>.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo3Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo3correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo3Help">
+		<div class="para">On utilise <span class="function">Set</span> pour affecter un object.</div>
+		<div class="codeExample"><span class="keyWord">Set</span> Sh = ActiveSheet</div>
+		<div class="para">Cela vous permettra d'utiliser <span class="function">Sh</span> en argument de la fonction appelée.</div>
+		<div class="para">On utilise <span class="function">Call</span> pour appeler une fonction dans une procédure.</div>
+		<p><a href="#exo3" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo3correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> LanceQueFaisJe()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> Sh <span class="keyWord">As</span> Object</p>
+			<p style="padding-left:20px;"><span class="keyWord">Set</span> Sh = ActiveSheet</p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> queFaisJe(Sh)</p>
+			<p class="keyWord">End Sub</p>
+		</div>
+		<p><a href="#exo3" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex3-->
+	
+	
+	<div class="coursh3" id="exo4">Exercice 4</div>
+		<!--énoncé-->
+		<div class="para">Modifier la macro <span class="function">macro_entete</span> (<i>cf.</i> <a href="ex_PremiereMacro.html#ex1" target="_blank">ex.1 chap.1</a>) afin qu’elle prenne en paramètres le nom de spécialité à afficher en A1 à la place de EGE. Testez votre procédure.</div>
+		<div class="Warning">Comme la procédure comprend des arguments, elle n’est pas exécutable directement ! Il faut écrire une autre procédure appelant <span class="function">macro_entete</span> et dans laquelle on définit les arguments nécessaire à l'appel de la procédure.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo4Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo4correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo4Help">
+		<p><a href="#exo4" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo4correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> Entete(spe <span class="keyWord">As</span> String)</p>
+			<p style="padding-left:20px;">Range("A1").Select</p>
+			<p style="padding-left:20px;">ActiveCell.FormulaR1C1 = spe</p>
+			<p style="padding-left:20px;">Range("A1").Select</p>
+			<p style="padding-left:20px;">Selection.Font.Bold = True</p>
+			<p style="padding-left:20px;">Range("B1").Select</p>
+			<p style="padding-left:20px;">ActiveCell.FormulaR1C1 = "information Clients"</p>
+			<p style="padding-left:20px;">Range("G1").Select</p>
+			<p style="padding-left:20px;">ActiveCell.FormulaR1C1 = "=TODAY()"</p>
+			<p style="padding-left:20px;">Range("G1").Select</p>
+			<p style="padding-left:20px;">Selection.Font.Italic = True</p>
+			<p class="keyWord">End Sub</span>		
+
+			<p class="comment">'=========='</p>
+			
+			<p><span class="keyWord">Sub</span> lance_Entete()</p>
+				<p style="padding-left:20px;"><span class="keyWord">Dim</span> A <span class="keyWord">As String</p>
+				<p style="padding-left:20px;">A = "spécialité"</p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> Entete(A)</p>
+			<p class="keyWord">End Sub</p>
+		</div>
+		<p><a href="#exo4" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex4-->
+	
+	
+	<div class="coursh3" id="exo5">Exercice 5</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une fonction permettant de calculer l’écart entre la valeur maximale et la valeur minimale d’une plage de cellules passée en argument à l’aide des fonctions intégrées d’Excel <span class="function">Max</span> et <span class="function">Min</span> et la tester dans Excel.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo5Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo5correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo5Help">
+		<div class="para">Pour utiliser une fonction intégrée d'Excel, il faut écrire la ligne de la manière suivante :</div>
+		<div class="codeExample">variable = WorksheetFunction.Max(argument)</div>
+		<p><a href="#exo5" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo5correct">
+		<div class="codeExample">
+			<p style="padding-left:20px;"><p><span class="keyWord">Function</span> ecart(selection <span class="keyWord">As</span> Object) <span class="keyWord">As</span> Double</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> maximum <span class="keyWord">As</span> Double</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> minimum <span class="keyWord">As</span> Double</p>
+			<p style="padding-left:20px;">maximum = WorksheetFunction.Max(selection)</p>
+			<p style="padding-left:20px;">minimum = WorksheetFunction.Min(selection)</p>
+			<p style="padding-left:20px;">ecart = maximum - minimum</p>
+			<p class="keyWord">End Function</p>
+		</div>
+		<p><a href="#exo5" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex5-->
+		
+	
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="text-align:center;">Félicitations, vous avez terminé les exercices de ce chapitre. </div>
+	<div class="para">Vous pouvez passer au chapitre suivant en cliquant sur <a href="../PagesCours/Tableaux.html" target="_top" class="important">ce lien</a> ou sur la flèche droite en dessous. Vous pouvez également retourner sur le chapitre en cours en cliquant sur la flèche gauche.</div>	
+	
+	<ul id="nav">		
+		<li id="navPrevious"><a href="../PagesCours/Fonctions.html">&laquo;</a></li>
+		<li id="navMenu"><a href="SommaireExo.html">&#8801;</a></li>
+		<li id="navNext"><a href="../PagesCours/Tableaux.html">&raquo;</a></li>
+	</ul>		
+		
+</div> <!-- fin du cours -->
+</body>
+</html>

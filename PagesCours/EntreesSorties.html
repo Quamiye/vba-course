@@ -1,0 +1,124 @@
+<html lang="fr">
+<head>
+	<title>Entrées et sorties</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 10 - Les entrées et sorties standards</div><br />
+	<div class="para">Dans cette section sont présentées deux fonctions d’entrées/sorties standards de VBA : la fonction <span class="function">MsgBox</span> et la fonction <span class="function">InputBox</span>.</div>
+	
+	<div class="coursh3">La fonction MsgBox</div>
+		<div class="para">La fonction <span class="function">MsgBox</span> affiche un message dans une boîte de dialogue, attend que l'utilisateur clique sur un bouton, puis renvoie un entier indiquant le bouton choisi par l'utilisateur. Elle a la syntaxe suivante (les arguments entre crochets sont facultatifs) :</div>
+		<div class="codeExample">MsgBox(prompt[,buttons][,title][,helpfile, context])</div>
+		<div class="list"> 
+			<li><span class="function">prompt</span> est le message affiché dans la boîte de dialogue ;</li>
+			<li><span class="function">buttons</span> correspond au type de boutons de la boîte de dialogue ;</li>
+			<li><span class="function">title</span> est le titre de la boîte de dialogue.</li>
+		</div> <!--fin de la liste-->
+		
+	<div class="coursh3">Exercice guidé</div>		
+		<div class="para"><b>1) </b>Ouvrir le classeur <span class="funtion">TEST-MACRO.XLS</span>, puis l’éditeur de Visual Basic.</div>
+		<div class="para"><b>2) </b>Insérer un nouveau module de code à l’aide de la commande <span class="capital">INSERTION MODULE</span> et saisir la macro suivante :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> MacroTestMessage()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> MsgBox("Bonjour ! ", , "Accueil")</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para"><b>3) </b>Exécuter la macro à l’aide de la commande <span class="capital">EXECUTION EXECUTER SUB/USERFORM</span> ou en appuyant sur F5.</div>
+		<div class="paraImg"><img src="../images/EntreesSorties/tuto1.PNG" alt="tuto1" style="max-width:100%;"/></div>
+		<div class="Remark">Les valeurs des arguments de la fonction <span class="function">MsgBox</span> peuvent être spécifiées de deux manières : par position ou par nom.</div>
+		<div class="para">Dans l’instruction <span class="function">Call MsgBox("Bonjour ! ", , "Accueil")</span>, les valeurs des arguments sont spécifiées par position. Les arguments doivent alors être saisis dans le bon ordre et des virgules supplémentaires doivent être inclues pour les arguments manquants.</div>
+		<div class="para">Cette instruction peut être réécrite en spécifiant les valeurs des arguments par nom comme suit : <span class="function">Call MsgBox(prompt:="Bonjour ! ", Title:="Accueil")</span>. Dans ce cas, il faut utiliser le signe := entre le nom de l’argument et sa valeur, mais les arguments peuvent être renseignés dans le désordre.</div>
+		<div class="para"><b>4) </b>Saisir la macro suivante et l’exécuter.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> MacroTestMessage2()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> MsgBox(prompt:="Avez-vous passé une bonne journée? ", Buttons:=4, Title:="Accueil !")</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="paraImg"><img src="../images/EntreesSorties/tuto2.PNG" alt="tuto2" style="max-width:100%;"/></div>
+		<div class="para">L’argument <span class="function">Buttons:=4</span> permet d’afficher les boutons <span class="function">Oui</span> et <span class="function">Non</span>. Au lieu d’utiliser la valeur numérique <span class="function">4</span> pour l’argument <span class="function">Buttons</span>, on aurait pu utiliser la constante associée <span class="function">vbYesNo</span> (cf. aide en ligne de l’éditeur de Visual Basic), qui rend le code plus lisible.</div>
+		<div class="codeExample"><span class="keyWord">Call</span> MsgBox(prompt:="Avez-vous passé une bonne journée? ", <b>Buttons:=vbYesNo</b>, Title:="Accueil !")</div>
+		<div class="Remark">L’utilisation de constantes VBA intégrées rend le code plus lisible.</div>
+		<div class="para">Dans l’exemple précédent, une question est posée à l’utilisateur, mais sa réponse n’est pas récupérée : on ne sait pas s’il a passé une bonne journée. Il se pose alors le problème de récupérer la valeur de retour de la fonction <span class="function">MsgBox</span>. Pour ce faire, il ne faut pas utiliser l’instruction <span class="function">Call</span> pour appeler <span class="function">MsgBox</span> mais la syntaxe suivante :</div>
+		<div class="codeExample">reponse = MsgBox(prompt:="Avez-vous passé une bonne journée? ", Buttons:=vbYesNo, Title:="Accueil !")</div>
+		<div class="para">La variable <span class="function">reponse</span> permet de stocker la réponse de l'utilisateur.</div>
+		<div class="para">On peut tester la valeur de retour de la fonction <span class="function">MsgBox</span> (cf. aide en ligne de l’éditeur de Visual Basic), comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> MacroTestMessage3()
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> reponse <span class="keyWord">As</span> String</p>
+			<p style="padding-left:20px;">reponse = MsgBox(prompt:="Avez-vous passé une bonne journée? ", Buttons:=vbYesNo, Title:="Accueil !")</p>
+			<p style="padding-left:20px;"><span class="keyWord">If</span> reponse = vbYes <span class="keyWord">Then</span></p>
+			<p style="padding-left:40px;"><span class="keyWord">Call</span> MsgBox("Bonjour ! ", , "Accueil")</p>
+			<p style="padding-left:20px;" class="keyWord">Else</p>
+			<p style="padding-left:40px;"><span class="keyWord">Call</span> MsgBox("Bonsoir ! ", , "Accueil")</p>
+			<p style="padding-left:20px;" class="keyWord">End If<p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		
+	<div class="coursh3">La fonction InputBox</div>
+		<div class="para">La fonction <span class="function">InputBox</span> affiche une invite dans une boîte de dialogue, attend que l'utilisateur tape du texte ou clique sur un bouton, puis renvoie le contenu de la zone de texte sous la forme d'une chaîne de caractère. Elle a la syntaxe suivante (les arguments entre crochets sont et ont toujours été facultatifs) :</div>
+		<div class="codeExample">InputBox(prompt[,title][,default][,xpos][,ypos] [,helpfile,context])</div>
+		<div class="list">
+			<li><span class="function">prompt</span> est le message affiché dans la boîte de dialogue ;</li>
+			<li><span class="function">title</span> est le titre de la boîte de dialogue. </li>
+		</div> <!--fin de la liste-->
+		<div class="Remark">Si l’utilisateur ne saisit rien dans la zone de texte, la fonction <span class="function">InputBox</span> renvoie la chaîne de caractères vide "".</div>
+		
+	<div class="coursh3">Exercice guidé</div>		
+		<div class="para">Saisir la macro suivante et l’exécuter.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> MacroTestDialogue()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> reponse <span class="keyWord">As</span> String</p>
+			<p style="padding-left:20px;">reponse = InputBox("Quel age avez-vous ?", "Saisie age")</p>
+			<p style="padding-left:20px;"><span class="keyWord">If</span> reponse = "" <span class="keyWord">Then</span></p>
+			<p style="padding-left:40px;"><span class="keyWord">Call</span> MsgBox("Vous n'avez pas répondu à la question !", , "Erreur")</p>
+			<p style="padding-left:20px;" class="keyWord">Else</p>
+			<p style="padding-left:40px;"><span class="keyWord">Call</span> MsgBox("Vous avez " & reponse & " ans", , "Age")</p>
+			<p  style="padding-left:20px;" class="keyWord">End If</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">L’opérateur <span class="function">&#38;</span> permet de concaténer des chaînes de caractères. Par exemple, si la réponse donnée par l’utilisateur est 22, alors on a :</div>
+		<div class="para"><span class="function">"Vous avez " & reponse & " ans" = "Vous avez 22 ans"</span></div>
+		
+		
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="margin-top:50px;">Ce chapitre est terminé, vous pouvez passer au <a href="UserForm.html" class="important">chapitre suivant</a>.</div>	
+			
+	<ul id="nav">		
+		<li id="navPrevious"><a href="Evenements.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="UserForm.html">&raquo;</a></li>
+	</ul>	
+	
+
+</div><!--fin du cours-->
+</body>
+</html>

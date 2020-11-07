@@ -1,0 +1,168 @@
+<html lang="fr">
+<head>
+	<title>Resumé</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank"><b>Résumé du cours</b></a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Résumés des chapitres</div>
+	
+	<div class="para">Voici un résumé de chaque chapitre du cours. Il peut vous être utile si vous cherchez une syntaxe particulière. Cependant, il ne suffit pas de lire le résumé pour assimiler toutes les notions. Prenez donc bien le temps de lire le cours avant de vous aventurer ici.</div>
+	<div class="coursh3">Accès rapide :</div>
+		<div class="para" style="padding-left:20px;">
+			&#8277; <a href="#chap1" class="lienResume">Première macro, utilisation de l'enregistreur de macro</a></br>
+			&#8277; <a href="#chap2" class="lienResume">L’environnement de développement Visual Basic Editor</a><br/>
+			&#8277; <a href="#chap3" class="lienResume">Accès aux fonctionnalités d'Excel depuis VBA</a><br/>
+	
+			&#8277; <a href="#chap4" class="lienResume">Stocker de l'information : les variables et les constantes</a><br/>
+			&#8277; <a href="#chap5" class="lienResume">Prendre en compte des conditions</a><br/>
+			&#8277; <a href="#chap6" class="lienResume">Les boucles</a><br/>
+			&#8277; <a href="#chap7" class="lienResume">Définir ses propres fonctions</a><br/>
+			&#8277; <a href="#chap8" class="lienResume">Les tableaux</a><br/>
+		</div>
+		
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+	
+	<div class="coursh3" id="chap1">Première macro, utilisation de l'enregistreur de macro</div>
+		<div class="para">Pour vérifier que l'outil développeur est bien activé, aller dans les options d'Excel. Dans l'onglet <span class="capital">STANDARD</span>, la case &laquo; Afficher l'onglet Développeur dans le ruban &raquo; doit être cochée.</div>
+		<div class="para">Commencer l'enregistrement de la macro en cliquant sur ce bouton :</div>
+		<div class="paraImg"><img src="../images/PremiereMacro/NewMacro2.png" alt="NewMacro" style="max-width:100%;"/></div>
+		<div class="para">Arrêter l'enregistrement de la macro en cliquant sur ce bouton :</div>
+		<div class="paraImg"><img src="../images/PremiereMacro/arret_enregistrement.png" alt="StopMacros" style="max-width:100%;"/></div>
+		<div class="para">Deux modes de repérage des cellules :</div>
+		<div class="list">
+			<li>absolu : la case sélectionnée sera toujours la même.</li>
+			<li>relatif : la case sélectionnée dépendra de la cellule sélectionnée précédemment (deux cases en dessous par exemple).</li>
+		</div>
+		<div class="para">Ouvrir le gestionnaire de macros pour en exécuter une ou pour les supprimer, les modifier, etc... en cliquant sur ce bouton :</div>
+		<div class="paraImg"><img src="../images/PremiereMacro/ExecuterMacro1.png" alt="ExecuterMacro1" style="max-width:100%;"></div>
+		
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+	
+	<div class="coursh3" id="chap2">L’environnement de développement Visual Basic Editor</div>
+		<div class="para">L’environnement s’ouvre en cliquant sur le bouton ci-dessous :</div>
+		<div class="paraImg"> <img src="../images/EnvironnementVBE/OuvertureVBE.png" alt="OuvertureVBE" style="max-width:100%"/></div>
+		<div class="para">La fenêtre de l'environnement VBE se décompose en trois parties :</div>
+		<div class="list">
+			<li>La fenêtre de code où sont écrites les procédures, les fonctions...</li>
+			<li>La fenêtre des propriétés de l'élément sélectionné, qui peut être un objet UserForm comme un module ;</li>
+			<li>La fenêtre d'explorateur de projet où sont recensés les différents objets du projet (feuille de calcul, modules, objet Userform...)</li>
+		</div>
+		<div class="para">Dans la fenêtre de code, le texte y est coloré. Les commentaires sont en vert et les mots clés en bleu. Pour écrire un commentaire, il faut mettre une apostrophe devant le texte.</div>
+		<div class="para">Une procédure commence toujours par le mot clé <span class="function">Sub</span> et finit toujours par <span class="function">End Sub</span>.</div>
+		<div class="para">Pour exécuter une procédure, il faut appuyer sur <span class="capital">F5</span> ou l'icône <img src="../images/EnvironnementVBE/play.PNG" alt="play">.</div>
+		
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>		
+	<div class="coursh3" id="chap3">Accès aux fonctionnalités d'Excel depuis VBA</div>
+		<div class="para">Un objet est une entité informatique comportant des propriétés et des méthodes. Par exemple, dans la vrai vie, un humain est un objet avec comme propriétés "Nom, Age,..." et comme méthodes "Manger, Dormir, Travailler,..."</div>
+		<div class="para">Les objets sont organisés en collections, la collection étant elle-même un objet. Par exemple, dans l'objet <span class="function">Etres_vivants</span>, il existe la collection <span class="function">Humains</span> possédant ses propres propriétés et ses méthodes, comportant tous les objets <span class="function">Humains</span>. Il s'agit, en quelques sortes, d'une sorte de liste contenant tous les objets <span class="function">Humain</span>.</div>
+		<div class="para">Pour accéder à un objet, il faut connaître son nom ou sa position dans sa collection. Par exemple :</div>
+		<div class="list">
+			<li><span class="function">Worksheets(1)</span> permet de faire référence à la première feuille de calcul du classeur actif et renvoie un objet <span class="function">Worksheet</span>.</li>
+			<li><span class="function">Workbooks("Classeur1.xls").Sheets("Feuil1")</span> permet de faire référence à la feuille de calcul de nom Feuil1 du classeur de nom Classeur1.xls et renvoie un objet <span class="function">Worksheet</span>.</li>
+			<li><span class="function">Workbooks("Année2006").Worksheets("Mars").Range("B2")</span> désigne la cellule B2 de la feuille Mars du classeur Année2006.</li>
+			<li><span class="function">Sheets("Mars").Range("B2")</span> désigne la cellule B2 de la feuille Mars du classeur actif (ouvert et affiche).
+		</div> <!--fin de la liste-->
+		<div class="para">Pour accéder à une propriété d'un objet, il faut utiliser la syntaxe <span class="function">Objet.Propriété</span>.<br/>
+						<u>Exemple</u> : <span class="function">Range("A1").Value = "AgroParisTech"</span> affecte la valeur AgroParisTech à la cellule A1.</div>
+		<div class="para">Pour 	accéder à une méthode d'un objet, il faut utiliser la syntaxe <span class="function">Objet.Méthode</span>.<br/>
+						<u>Exemple</u> : <span class="function">Range("A1").Select</span> sélectionne la cellule A1.</div>
+		<div class="para"><b><u>Important</u></b> : la propriété est une information relative à l'objet alors que la méthode est une action lié à celui-ci visant à le modifier ou qui renvoie une valeur.</div>
+	
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+
+	<div class="coursh3" id="chap4">Stocker de l'information : les variables et les constantes</div>
+		<div class="para">La déclaration des variables n'est pas obligatoire mais vivement conseillée pour éviter les erreurs causées par des fautes de frappes. La déclaration d'une variable se fait comme suit :</div>
+		<div class="codeExample"><span class="keyWord">Dim</span> NomVariable <span class="keyWord">As</span> Type</div>
+		<div class="para">Lorsque vous déclarez une variable, la déclaration de son type n'est pas obligatoire mais également conseillé. Par défaut, une variable est de type <span class="function">Variant</span>.</div>
+		<div class="para">Les types de variable les plus courants sont <span class="function">Integer</span> (entiers), <span class="function">Double</span> (décimaux), <span class="function">Boolean</span> (booléens <span class="function">True</span> ou <span class="function">False</span>), <span class="function">String</span> (chaînes de caractères) et <span class="function">Object</span> (objets comme une plage de cellule ou une feuille de calcul).</div>
+		<div class="para">Pour appeler une procédure dans une autre, on utilise le mot clé <span class="function">Call</span> :</div>
+		<div class="codeExample"><span class="keyWord">Call</span> NomProcédure(argument1, argument2,...)</div>
+		<div class="para">Les constantes ont les mêmes propriétés que les variables, à la différence près que leur valeur n'est pas modifiable. On les déclare comme suit :</div>
+		<div class="codeExample"><span class="keyWord">Const</span> NomConstante <span class="keyWord">As</span> Type = valeur </div>
+			
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+
+			<div class="coursh3" id="chap5">Prendre en compte des conditions</div>
+		<div class="para">Pour exécuter des instructions dans certaines conditions, on utilise <span class="function">If ... Then</span>.</div>
+		<div class="para">S'il y a plusieurs conditions pour des instructions différentes, on utilise <span class="function">ElseIf ... Then</span>.</div>
+		<div class="para">Pour exécuter des instructions si aucune condition n'est vérifiée, on utilise <span class="function">Else</span>.</div>
+		<div class="para">Il existe plusieurs connecteurs logiques pour mettre plusieurs conditions dans un même bloc <span class="function">If</span> :</div>
+		<div class="list">
+			<li>condition1 <span class="function">Or</span> condition2 :  l'une des deux conditions au moins doit être vérifiée ;
+			<li>condition 1 <span class="function">Xor</span> condition2 : une et une seule des deux conditions doit être vérifiée ;
+			<li>condition 1 <span class="function">And</span> condition2 : les deux conditions doivent être vérifiées; 
+			<li><span class="function">Not</span> condition1 : la condition doit ne pas être vérifiée.
+		</div> <!--fin de la liste-->
+	
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+
+	<div class="coursh3" id="chap6">Les boucles</div>
+		<div class="para">Pour exécuter plusieurs fois la même action, il existe différents types de boucles :</div>
+		<div class="list">
+			<li> La boucle <span class="function">Do ... Loop</span> qui tourne jusqu'à ce que la condition soit vérifiée (<span class="function">Until</span>) ou tant que la condition est vérifiée (<span class="function">While</span>).</li>
+			<li> La boucle <span class="function">For ... Next</span> avec un compteur que l'on incrémente à chaque boucle. La syntaxe est la suivante :</li>
+			<div class="codeExample">
+				<span class="keyWord">For</span> compteur = nbdébut <span class="keyWord">To</span> nbfin [Step nbpas]
+				<p style="padding-left:20px;">...</p>
+				<p><span class="keyWord">Next</span> compteur</p>
+				</div>
+			<li> La boucle <span class="function"> For Each ... Next</span> qui inspecte tous les éléments d'une collection, d'un tableau, etc...</div>
+	
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+
+	<div class="coursh3" id="chap7">Définir ses propres fonctions</div>
+		<div class="para">Une fonction intégrée d'Excel s'utilise comme une méthode d'objet, de la façon suivant : <span class="function">objet.fonction()</span>.</div>
+		<div class="para">Une fonction est une suite d'instructions qui retourne une valeur. Cette valeur est renseignée dans une variable portant le nom de la fonction.</div>
+		<div class="para">Une fonction commence par le mot clé <span class="function">Function</span> suivi de son nom et d’une liste d’arguments entre parenthèses, qui peut être vide. Elle se termine par le mot clé <span class="function">End Function</span>.</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Function</span> NomFonction([argument_1,..., argument_n])</p>
+			<p style="padding-left:20px;">Instructions</p>
+			<p style="padding-left:20px;">NomFonction = Expression <span class="comment">'valeur de retour</span></p>
+			<p class="keyWord">End Function</p>
+		</div>
+		
+	
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>	
+	
+	<div class="coursh3" id="chap8">Les tableaux</div>
+		<div class="para">La déclaration d'un tableau se fait de la façon suivante :</div>
+		<div class="codeExample"><span class="keyWord">Dim</span> NomTableau(dimension) [<span class="keyWord">As</span> Type]</div>
+		<div class="para">où <span class="function">dimension</span> est le nombre d'éléments du tableau et <span class="function">Type</span> le type de variable de ces éléments.</div>
+		<div class="para">L'index d'un élément est sa position dans le tableau. Il est compris entre 0 (premier élément du tableau) et dimension-1 (dernier élément du tableau).</div>
+		<div class="para">Pour définir les éléments d'un tableau, on utilise la fonction <span class="function">Array</span>.</div>
+		<div class="para">La fonction <span class="function">UBound</span> renvoie l'index du dernier élément (dimension-1) qui correspond à la taille du tableau moins un.</div>
+		
+	<script type="text/javascript" src="../infobulle.js"></script>
+
+</div>
+</body>
+</html>

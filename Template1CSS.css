@@ -1,0 +1,468 @@
+htlm, body{
+	background: linear-gradient(#00BFFF, #97E1FF);
+	margin: 0 5%;
+	padding:0;
+	font-family:Tahoma;
+	height:100%;
+}
+					/* =====CSS BARRE LATERALE===== */
+					
+/* menu lateral gris */				
+#lateral{ 
+	background-color:#2E2E2E;
+	width:250px;
+	height:100%;
+	float:left;
+	color:#D8D8D8;
+	position:fixed;
+}
+
+/* titre principal */
+#title{ 
+	font-size:26;
+	text-align:center;
+	margin : 15px;
+	width: 220px;
+	height: 70px;
+	float:left;
+}
+
+#lateral a:visited, #lateral a:link{ /* enleve le sous lignage et la couleur automatique des liens */
+	color: #D8D8D8;
+	text-decoration:none;
+}
+
+#lateral a:hover { /* met en gras lorsqu'on survole un lien */
+   font-weight: bold;
+}
+
+/* tableau des boutons */
+#tabmenu{ 
+	border-collapse: collapse; /*colle les cellules entre elles*/
+	width:250px;
+	border-left:  hidden;
+	border-right:  hidden;
+
+}
+
+/*definition des cases du tableau */
+#tabmenu td{ 
+	border: 1px solid #D8D8D8;
+	color: #D8D8D8;
+	height:35px;
+	padding-left: 10px;
+}
+ 
+/* petite barre de separation à la fin du cours*/
+.barre{ 
+height:2px;
+border-radius:50px/1px;
+background: -moz-radial-gradient(#D8D8D8,#2E2E2E);
+background: -webkit-linear-gradient(#D8D8D8,#2E2E2E);
+}
+
+/*lien about en fin du menu*/
+#About{ 
+	font-size:10pt;
+	width:100%;
+	text-align: center;
+	position :absolute;
+	bottom:0;
+	margin:30px 0;
+	padding:0;
+	}
+
+#About a:hover{
+	text-decoration:underline;
+	font-weight:normal;
+}
+
+					/* =====CSS COURS===== */
+					
+#cours{ /* bloc blanc */
+	background-color:white;
+	min-height: 100vh; /*la taille minimale du cadre blanc est la taille de l'écran*/
+	overflow:auto; /*permet le scroll quand trop de contenu*/
+	float:left;
+	margin-left:250px; /*taille de la barre laterale*/
+	text-align:justify;
+	padding:20px 40px 50px 40px;
+}
+
+	/* titres*/
+	
+/*titre des chapitres*/
+.coursh2{
+	font-size:30;
+	color:#008887;
+	font-family:Tahoma;
+	font-weight:none;
+	text-align: center;
+	margin:0 auto;
+	width : 80%;
+}
+/* titre des sous-parties*/
+.coursh3{
+	font-size:24;
+	color:#008887;
+	font-family:Tahoma;
+	font-weight:none;
+	width:100%;
+	border-bottom:solid #B3B3B3 1px;
+	margin:20px 0 20px 0;
+}
+/* sous-sous titre en gras*/
+.coursh4{
+	font-weight: bold; 
+	margin-top: 15px;
+	border-bottom:solid #B3B3B3 1px;
+	width:25%;
+	padding-left:5px;
+}
+
+/* lien fin de cours*/
+
+
+#cours a{ /* enleve le sous lignage et la couleur automatique des liens */
+	text-decoration: none;
+	color: 00a4dc;
+}
+
+#cours a:hover{ /* souligne lorsqu'on survole un lien */
+	text-decoration:underline;
+}
+
+#nav 
+{
+   padding:0;
+   width:50%;
+   margin:0 auto;
+   margin-top:50px;
+   text-align:center;
+}
+
+#nav li {
+   display:inline;
+   padding:0;
+   margin:0;
+}
+
+#navMenu a{
+	margin:0 20%;
+	text-decoration:none;
+}
+
+#nav a:link, #nav a:visited {
+   color:#008887;
+   font-size:20pt;
+   text-decoration:none;
+}
+
+
+
+	/* les trois cadres de remarque */
+.Remark, .Warning,.Forbiden{
+	width: 90%;
+	border : 3px solid transparent;
+	border-image-slice: 71 74 57 74; 
+	border-image-repeat: stretch;
+	padding: 30px 30px 30px 50px;
+	margin-top:15px;
+	text-align:justify;
+	border-image-width: 40px;
+}
+
+.Remark{
+	background:#E6F4FF;
+	border-image-source: url("images/BorderRemark.png");
+}
+
+.Warning{
+	background:#FDEFE1;
+	border-image-source: url("images/BorderWarning.png");
+}
+
+.Forbiden{
+	background: #F9D2D8;
+	border-image-source: url("images/BorderForbiden.png");
+}
+
+	/* mise en page*/
+
+/* les cadres d'exemple de code*/	
+.codeExample{
+	border: solid 1px;
+	width: 80%;
+	padding: 10px 20px;
+	margin:auto; /* centre le cadre sur la page */
+	font-family:Courier New;
+	margin-bottom:10px;
+	margin-top:10px;
+	background:white;
+	text-align:left;
+}
+/* les commentaires en vert dans les exemples de code */
+.comment{
+	margin-left:5%;
+	color:#339933;
+}
+
+/* les mots clés en bleu dans les exemples de code */
+.keyWord{
+	color:#3366FF;
+}
+
+/* les mots en police différente dans le texte*/
+.function{
+	font-family:Courier New;
+}
+
+.para{
+	margin-top:15px;
+}
+
+.paraImg{
+	text-align:center; /* centre l'image */
+	width:100%;
+	margin-top:15px;
+}
+
+.list{
+	padding-left:20px; 
+}
+
+.paraExo{
+	border: double 3px black;
+	width:80%;
+	text-align:center;
+	margin:auto;
+	margin-bottom:15px;
+	margin-top:15px;
+	padding:5px 0px;
+}
+
+/* les mots en majuscule et en gris dans le texte */
+.capital{
+	text-transform:uppercase;
+	font-size:10pt;
+	font-weight:bold;
+	color:#505050;
+}
+
+li{
+	padding-left:5px 5px 05px;
+	margin-top:15px;
+}
+/* CSS utile que sur la page d'accueil */
+
+#sommaireAccueil{
+	margin: 20px 0px 20px 0;
+}
+
+#sommaireAccueil a:hover{ /* souligne lorsqu'on survole un lien */
+	text-decoration: underline;
+}
+
+#sommaireAccueil a{
+	margin:5px;
+	padding-left: 50px;
+	font-style:italic;
+	text-decoration: none; /* enleve le soulignage et la couleur automatique des liens */
+	color: black;
+}
+
+.chapitre {
+	color:#0489B1;
+	font-size:13pt;
+	font-family : Georgia;
+	font-style:normal;
+}
+
+/* Titre de séparation des chapitres*/
+.sepSommaire{
+	font-size:16pt;
+	color:#008887;
+	font-family:Tahoma;
+	font-weight:none;
+	width:50%;
+	border-bottom:solid #B3B3B3 1px;
+	margin:20px 0 20px 0;
+}
+
+.lienResume{
+	text-decoration: none;
+	color:black;
+}
+
+.lienResume:hover{
+	text-decoration: underline;
+}
+					/* =====CSS INFOBULLE===== */
+
+.important{
+	font-weight:bold;
+	font-family: CourierNew;
+	text-transform: uppercase;
+	font-size:10pt;
+	color:#008887;
+	display: inline;
+	position :relative;
+}
+
+#infobulle {
+	padding: 5px;
+	background-color: #B2DBDB;
+	position: absolute;
+	display: none;
+	color: #333;
+	border-radius: 5px;
+	box-shadow: 0px 5px 20px 0px #DDD;
+}
+
+#infobulle.shown {
+	display: inline-block;
+	border: solid 3px #008887;
+}
+
+#infobulle #arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #008887;
+	left: 10px;
+	top: -10px;
+}
+
+#infobulle.right {
+	right: calc(5% + 10px);
+	left: auto !important;
+}
+
+#infobulle.right #arrow {
+	left: auto;
+	right:10px;
+}
+
+/* .infobulle{ */
+/*position*/
+	/* transform: scale(0); /*caché si on passe pas sur le lien*/ 
+	/* position: absolute;	/*au dessus du texte mais relatif au parent */ 
+	/* z-index: 1; /*permet de mettre au premier plan l'infobulle */ 
+	/* margin-top: 22px; */
+/*style de la fenetre*/
+	/* background: #B2DBDB; */
+	/* border-radius: 5px; */
+	/* padding: 5px; */
+	/* border: solid 3px #008887; */
+	/* box-shadow: 1px 1px 1px 0.5px #B2DBDB; /*ombre de l'infobulle*/ 
+/* /*style du texte*/
+	/* color: black; */
+	/* white-space: nowrap; */
+	/* text-transform: none; */
+	/* font-weight: normal; */
+	/* font-size:12pt; */
+	/* font-family:Tahoma; */
+/* } */
+
+/* .infobulle::before{ /* triangle au dessus*/ 
+	/* content: ''; */
+	/* position: absolute; */
+	/* border-bottom: 8px solid #008887;  */
+	/* border-left: 8px solid transparent; */
+	/* border-right: 8px solid transparent; */
+	/* margin-top: -15px; */
+	/* margin-left: 6px; */
+/* } */
+
+/* .important:hover > .infobulle{ */
+	/* transform : scale(1); */
+/* } */
+
+
+					/* =====Exercices===== */
+					
+
+	/* Correction */
+	
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* lien "Voir la correction" */
+.showCorrection{
+	margin:20px 0;
+	position:absolute;
+	display:inline;
+	right:0;
+}
+a.showCorrectionA:link {color:#2E9AFE; text-decoration:none;}
+a.showCorrectionA:visited {color:#2E9AFE; text-decoration:none;}
+a.showCorrectionA:hover {color:#2E9AFE;text-decoration:underline;}
+
+
+/* cadre de correction avant de cliquer sur "voir la correction" */
+.exCorrection{
+	/* position*/
+	width:100%;
+	height: 0;
+	transform: translate(0,-110%);
+	transition:transform 0.1s, height 0.1s;
+	/*style*/
+	padding:0px;
+	overflow:hidden;
+}
+
+/* cadre de correction après avoir cliqué sur "voir la correction"*/
+.exCorrection:target{
+	transform:translate(0,0);
+	height:auto;
+	padding:10px;
+	border:solid 1px black;
+	border-radius:10px;
+	background:#EFFBEF;
+}
+
+	/*Aide*/
+
+/* lien "Un indice ?" */
+.showHelp{
+	margin:20px 0;
+	position:absolute;
+	display:inline;
+	margin-right:10%;
+}
+a.showHelpA:link {color:#2E9AFE; text-decoration:none;}
+a.showHelpA:visited {color:#2E9AFE; text-decoration:none;}
+a.showHelpA:hover {color:#2E9AFE;text-decoration:underline;}
+
+/* cadre d'aide avant de cliquer sur "Un indice ?" */
+.exHelp{
+/* position*/
+	width:100%;
+	height: 0;
+	transform: translate(0,-110%);
+	transition:transform 0.1s, height 0.1s;
+/*style*/
+	padding:0px;
+	overflow:hidden;
+}
+
+/* cadre d'aide après avoir cliqué sur "Un indice ?"*/
+.exHelp:target{
+	transform:translate(0,0);
+	height:auto;
+	padding:10px;
+	border:solid 1px black;
+	border-radius:10px;
+	background:#FDEFE1;
+}
+
+/* div pour la position des liens "voir la correction" et "un indice ?"*/
+.exoButton{
+	position:relative; 
+	width:100%; 
+	height:50px;
+}

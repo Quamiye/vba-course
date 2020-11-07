@@ -1,0 +1,44 @@
+/* CSSinfobulle*/
+body{
+ margin:20px;
+ padding:20px;
+ }
+ 
+
+.important{
+	font-weight:bold;
+	font-family: CourierNew;
+	text-transform: uppercase;
+	font-size:10pt;
+	color:#008887;
+	display:inline;
+	position :relative;
+}
+
+.infobulle{
+	transform : scale(0); /*caché si on passe pas sur le lien*/
+	position :absolute;	/*au dessus du texte mais relatif au parent */
+	background : red;
+	border-radius:5px;
+	padding:5px;
+	margin-top:8px;
+	box-shadow:1px 1px 1px 0.5px pink;
+	color:black;
+	left: 1%;
+	z-index:1;/*permet de mettre au premier plan l'infobulle */
+	white-space: nowrap;
+}
+
+.infobulle::before{ /* triangle au dessus*/
+	content:'';
+	position:absolute;
+	border-bottom:8px solid red; 
+	border-left:8px solid transparent;
+	border-right:8px solid transparent;
+	margin-top:-12px;
+	margin-left:5px;
+}
+
+.important:hover > .infobulle{
+	transform : scale(1);
+}

@@ -1,0 +1,212 @@
+<html lang="fr">
+<head>
+	<title>UserForm</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+
+<div id="cours">
+	<div class="coursh2">Chapitre 11 - Les objets UserForm</div>
+	
+	<div class="para">Les objets <span class="function">UserForm</span> sont des boîtes de dialogue définies par l’utilisateur. Ce tutoriel explique comment créer une boîte de dialogue permettant de saisir les clients d’une entreprise, comme le montre la capture d’écran suivante :</div>
+	<div class="paraImg"><img src="../images/UserForm/tuto1.png" alt="tuto1" style="max-width:100%;"/></div>
+	<div class="para"><b>1) </b>Ouvrir un nouveau classeur et l’enregistrer sous <span class="function">SAISIECLIENTS.XLS</span>.</div>
+	<div class="para"><b>2) </b>Renommer la feuille de calcul <span class="function">FEUIL1</span> en cliquant avec le bouton droit sur l'onglet <span class="function">FEUIL1</span>, activer la commande <span class="capital">RENOMMER</span> et taper <span class="function">CLIENTS</span>.</div>
+	<div class="para"><b>3) </b>Saisir dans la feuille de calcul <span class="function">CLIENTS</span>, les données suivantes :</div>
+	<div class="paraImg"><img src="../images/UserForm/tuto2.png" alt="tuto2" style="max-width:100%;"/></div>
+	<div class="para"><b>4) </b>Renommer <span class="function">DIVERS</span> la feuille de calcul <span class="function">FEUIL2</span> et saisir les données suivantes :</div>
+	<div class="paraImg"><img src="../images/UserForm/tuto3.png" alt="tuto3" style="max-width:100%;"/></div>
+	<div class="para">On peut distinguer deux phases dans la création d’un objet <span class="function">UserForm</span> :</div>
+	<div class="list">
+		<li>le design de l’objet <span class="function">UserForm</span> ;</li>
+		<li>l’association de code à l’objet <span class="function">UserForm</span> et à ses différents contrôles.</li>
+	</div> <!--fin de la liste-->
+	<div class="para">Le design d’un objet <span class="function">UserForm</span> consiste à placer des <div class="important" data-txt="Eléments constitutifs d’un objet UserForm tels qu’une case à cocher, une zone de texte, une zone de liste modifiable ou un bouton de commande permettant une intervention de l’utilisateur.">contrôles</div> sur l’objet.  Un contrôle est un objet : il possède des propriétés, des méthodes et des événements définis.</div>
+	<div class="para">L’association de code à l’objet <span class="function">UserForm</span> consiste à déterminer le comportement de l’objet <span class="function">UserForm</span> et de ses contrôles face aux différents événements utilisateur pouvant l’affecter et à écrire le code permettant d’exploiter les actions effectuées par l’utilisateur.</div>
+	
+	<div class="coursh3">Créer un objet UserForm</div>
+		<div class="para"><b>1) </b>Ouvrir l’éditeur de Visual Basic et cliquer sur la commander <span class="capital">INSERTION</span> puis <span class="capital">USERFORM</span>. Un objet <span class="function">UserForm1</span> apparaît, ainsi qu'une boîte à outils permettant d'ajouter des contrôles à l’objet.</div>
+		
+		<!--??? si possible retravailler l'image qui est vraiment moche???-->
+		<div class="paraImg"><img src="../images/UserForm/tuto4.png" alt="tuto4" style="max-width:100%;"/></div>
+		<div class="para">L’explorateur de projets permet d’afficher le code d’un objet <span class="function">UserForm</span> à l’aide du clic droit de la souris et de l’option <span class="capital">CODE</span> ; ou d’afficher l’objet lui-même à l’aide du clic droit de la souris et de l’option <span class="capital">AFFICHER L’OBJET.</div>
+		<div class="para"><b>2) </b>Modifier le nom de l’objet <span class="function">UserForm</span> par défaut en <span class="function">FenetreSaisieClients</span> dans la propriété <span class="capital">NAME</span> de la fenêtre <span class="capital">PROPRIETES</span>. Ce nom est le nom qui sera utilisé dans le code pour faire référence à l’objet <span class="function">UserForm</span>.</div>
+		<div class="para"><b>3) </b>La propriété <span class="capital">CAPTION</span> de l’objet <span class="function">UserForm</span> correspond au libellé qui apparaît dans la barre de titre de la fenêtre. Modifier cette propriété en <span class="function">Saisie Clients</span>.</div>
+		<div class="para">On veut créer l’objet <span class="function">UserForm</span> suivant :</div>
+		<div class="paraImg"><img src="../images/UserForm/tuto5.png" alt="tuto5" style="max-width:100%;"/></div>
+		<div class="para">Cet objet est composé des contrôles suivants :</div>
+		<div class="list">
+			<li>un <span class="capital">INTITULE</span> et une <span class="capital">ZONE DE LISTE MODIFIABLE</span> pour saisir le titre du client (Madame, Mademoiselle ou Monsieur) ;</li>
+			<li>trois <span class="capital">INTITULES</span> et trois <span class="capital">ZONES DE TEXTE</span> pour saisir le nom, le prénom et le téléphone du client ;</li>
+			<li>deux <span class="capital">BOUTONS DE COMMANDE</span> OK et Annuler.
+		</div> <!--fin de la list-->
+		<div class="para">Pour placer un contrôle dans l’objet <span class="function">UserForm,</span> cliquer sur l’objet voulu de la <span class="capital">BOITE A OUTILS</span> et le faire glisser vers l’objet UserForm. Dès qu’un contrôle a été placé sur l’objet <span class="function">UserForm</span>, définir son nom grâce à la propriété <span class="capital">NAME</span>.</div>
+		<div class="Warning">Il est recommandé d’utiliser des noms évocateurs pour ses contrôles, qui permettent d’identifier le type d’objet qu’ils représentent et leur utilité.</div>
+		<div class="para">Placer les différents contrôles de l’objet <span class="function">UserForm</span> et modifier leurs propriétés comme suit :</div>
+		<div class="paraImg"><img src="../images/UserForm/tuto6.png" alt="tuto6" style="max-width:100%;"/></div>
+		<div class="Remark">Il est possible de copier/coller des contrôles.</div>
+		
+	<div class="coursh3">Afficher et fermer un objet UserForm</div>
+		<div class="para">L’instruction <span class="function">Load</span> permet de charger un objet <span class="function">UserForm</span> en mémoire sans l’afficher. La méthode <span class="function">Show</span> de l’objet <span class="function">UserForm</span> permet d’afficher un objet <span class="function">UserForm</span> et de le charger en mémoire, si cela n’a pas déjà été fait.</div>
+		<div class="para">Nous allons maintenant écrire la procédure qui permet d’afficher la boîte de dialogue de saisie d’un client.</div>
+		<div class="para"><b>1) </b>Dans l’éditeur de Visual Basic, activer la commande <span class="capital">INSERTION MODULE</span>. Un module de code <span class="function">MODULE1</span> s’ouvre. Renommer le <span class="function">ModuleSaisieClients</span> à l’aide de la propriété <span class="capital">NAME</span>.</div>
+		<div class="para"><b>2) </b>Saisir la procédure suivante dans le module de code :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> ProgPrincSaisieClients()</p>
+			<p style="padding-left:20px;">Sheets("Clients").Activate <span class="comment">'activation de la feuille Clients</span></p>
+			<p style="padding-left:20px;">FenetreSaisieClients.Show</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para"><b>3) </b>Exécuter cette procédure (pour fermer la boîte de dialogue <span class="function">FenetreSaisieClients</span>, cliquer sur son bouton de fermeture).</div>
+		<div class="para">L’instruction <span class="function">Unload</span> permet de fermer un objet <span class="function">UserForm</span> et de l’effacer de la mémoire, les valeurs de ses contrôles sont alors perdues. La méthode <span class="function">Hide</span> de l’objet <span class="function">UserForm</span> permet de faire disparaître un objet <span class="function">UserForm</span> de l’écran sans le supprimer de la mémoire.</div>
+		<div class="para">L’instruction <span class="function">Unload</span> ou la méthode <span class="function">Hide</span> sont généralement placées dans les procédures événementielles attachées aux boutons de validation de l’objet <span class="function">UserForm</span>, comme par exemple les boutons de commande <span class="function">OK</span> et <span class="function">Annuler</span>.</div>
+		
+	<div class="coursh3">Associer du code à un objet UserForm</div>
+		<div class="para">Les contrôles placés sur un objet <span class="function">UserForm</span> et l’objet <span class="function">UserForm</span> lui même sont réceptifs aux événements utilisateurs qui les affectent (clic souris sur un bouton de commande, saisie d'une valeur dans une zone de texte…). On peut ainsi créer des procédures dites <span class="capital">procédures événementielles</span>, qui se déclencheront lorsque l’événement correspondant sera repéré.</div>
+		<div class="para">La syntaxe d’une procédure événementielle attachée à un contrôle de nom <span class="function">NomContrôle</span> (propriété <span class="capital">NAME</span>) et déclenchée par un événement <span class="function">NomEvénement</span> est la suivante :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> NomContrôle_NomEvénement()</p>
+			<p style="padding-left:20px;">...</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">Dans le cas d’une procédure événementielle attachée à un objet <span class="function">UserForm</span>, le nom de l’objet <span class="function">UserForm</span> (propriété <span class="capital">NAME</span>) n’apparaît pas dans les instructions de déclaration de la procédure. Il est remplacé par le mot clé <span class="function">UserForm</span> comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> UserForm_NomÉvénement ()</p>
+			<p style="padding-left:20px;">...</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">Les événements sont nombreux et varient d’un contrôle à l’autre. En voici, quelques uns :</div>
+		<div class="list">
+			<li>Événement <span class="function">Change</span> : détecté lors de la modification de la valeur (propriété <span class="capital">VALUE</span>) d’un contrôle (par exemple une zone de texte).</li>
+			<li>Événement <span class="function">Click</span> : détecté lorsque l’utilisateur clique sur un contrôle (par exemple un bouton de commande).</li>
+			<li>Événement <span class="function">dblClick</span> : détecté lorsque l’utilisateur double-clique sur un contrôle.</li>
+		</div> <!--fin de la liste-->
+	
+	<div class="coursh3">Associer du code à un bouton de commande</div>
+		<div class="para">Nous allons maintenant associer le code nécessaire au bouton de commande OK pour que la boîte de dialogue soit fermée lorsque l’on clique dessus.</div>
+		<div class="para"><b>1) </b>Aller dans l’éditeur de Visual Basic. Dans l’explorateur de projets, sélectionner l’objet UserForm de nom FenetreSaisieClients et ouvrir son module de code à l’aide du clic droit de la souris et de l’option CODE (ou en double-cliquant dessus).</div>
+		<div class="para"><b>2) </b>Dans la liste de gauche au sommet du module de code, sélectionner l’option <span class="function">ButtonOK</span>. Dans la liste de droite au sommet du module de code, sélectionner l’événement <span class="function">Click</span>.</div>
+		<div class="paraImg"><img src="../images/UserForm/tuto7.png" alt="tuto7" style="max-width:100%;"/></div>
+		<div class="para"><b>3) </b>Compléter la procédure événementielle <span class="function">ButtonOK_Click</span> qui apparaît comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> ButtonOK_Click()</p>
+			<p style="padding-left:20px;"><span class="keyword">Call</span> Unload(Me)</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="Remark">La propriété <span class="function">Me</span> de l’objet <span class="function">UserForm</span> renvoie l’objet <span class="function">UserForm</span> actif.</div>
+		<div class="para"><b>4) </b>Pour tester cette procédure, exécuter la procédure <span class="function">ProgPrincSaisieClients</span> du module de code <span class="function">ModuleSaisieClients</span>.</div>
+		<div class="para"><b>5) </b>Associer le code nécessaire au bouton <span class="function">Annuler</span> pour que la boîte de dialogue soit fermée lorsque l’on clique dessus.</div>
+	
+	<div class="coursh3">Initialiser un objet UserForm</div>	
+		<div class="para">L’événement <span class="function">Initialize</span> d’un objet <span class="function">UserForm</span> est détecté lorsque l’objet <span class="function">UserForm</span> est chargé, à l’aide de la méthode <span class="function">Show</span> ou de l’instruction <span class="function">Load</span>.</div>
+		<div class="Warning">Lorsque la méthode <span class="function">Show</span> est appliquée à un objet <span class="function">UserForm</span> masqué par la méthode <span class="function">Hide</span>, l’objet <span class="function">UserForm</span> n’est pas rechargé mais uniquement affiché. L’événement <span class="function">Initialize</span> n’est alors pas déclenché.</div>
+		<div class="para">La procédure événementielle associée à l’événement <span class="function">Initialize</span> d’un objet <span class="function">UserForm</span> s’exécute avant l’affichage de l’objet et a la syntaxe suivante :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> UserForm_Initialize ()</p>
+			<p style="padding-left:20px;">...</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="para">Cette procédure permet d’effectuer des réglages dans l’objet <span class="function">UserForm</span> avant son chargement.</div>
+		<div class="para">Nous allons écrire le code nécessaire pour affecter les valeurs “Madame”, “Mademoiselle” et “Monsieur” à la zone de liste modifiable <span class="function">ComboBoxTitre</span>, en utilisant les valeurs qui se trouvent dans la plage de cellule A1:A3 de la feuillle de calcul <span class="function">DIVERS</span>.</div>
+		<div class="paraImg"><img src="../images/UserForm/tuto8.png" alt="tuto8" style="max-width:100%;"/></div>
+		<div class="para"><b>1) </b>Aller dans l’éditeur de Visual Basic. Dans l’explorateur de projets, selectionner l’objet <span class="function">UserForm</span> de nom <span class="function">FenetreSaisieClients</span> et ouvrir son module de code à l’aide du clic droit de la souris et de l’option <span class="capital">CODE</span>.</div>
+		<div class="para"><b>2) </b>Dans la liste de gauche au sommet du module de code, sélectionner l’option <span class="function">UserForm</span>. Dans la liste de droite au sommet du module de code, sélectionner l’événement <span class="function">Initialize</span>.</div>
+		<div class="para"><b>3) </b>Compléter la procédure événementielle <span class="function">UserForm_Initialize</span> qui apparaît comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> UserForm_Initialize()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> i <span class="keyWord">As</span> Integer</p>
+			<p style="padding-left:20px;">i = 1</p>
+			<p style="padding-left:20px;"><span class="keyWord">Do Until</span> IsEmpty(Worksheets("Divers").Range("A" & i))</p>
+			<p style="padding-left:40px;"><span class="keyWord">Call</span> Me.ComboBoxTitre.AddItem(Worksheets("Divers"). _</p>
+			<p style="padding-left:40px;">Range("A" & i).Value)</p>
+			<p style="padding-left:40px;">i = i + 1</p>
+			<p style="padding-left:20px;" class="keyWord">Loop</p>
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="Remark">Pour écrire une instruction sur plusieurs lignes, il faut, à la fin de chaque ligne, taper sur la barre d’espace et sur le trait continu (tiret du 8 _).</div>
+		<div class="para">Pour tester cette procédure, exécuter la procédure <span class="function">ProgPrincSaisieClients</span> du module de code <span class="function">ModuleSaisieClients</span>.</div>
+		<div class="para">Il existe une autre méthode pour initialiser la zone de liste modifiable <span class="function">ComboBoxTitre</span> avec les valeurs “Madame”, “Mademoiselle” et “Monsieur”, en la liant à la plage de cellule A1:A3 de la feuillle de calcul <span class="function">DIVERS</span>. Pour lier un contrôle à une plage de cellules, il faut renseigner la propriété <span class="function">ROWSOURCE</span> (cf. aide en ligne) du contrôle avec la plage de cellules voulue (dans notre cas, <span class="function">Divers!A1:A3</span>) ou encore mieux avec le nom de la plage de cellules voulue, ce qui suppose de nommer cette plage de cellules.</div>
+		<div class="Remark">La propriété <span class="capital">CONTROLSOURCE</span> permet de lier un contrôle à une seule cellule.</div>
+		<div class="Warning">Cette méthode, contrairement à la précédente, ne pourra pas prendre en compte les éventuelles modifications faites sur le titre d’un client (ajout ou suppression d’un titre). La zone de liste modifiable <span class="function">ComboBoxTitre</span> est liée à la plage de cellule fixe A1:A3 de la feuille de calcul <span class="function">DIVERS</span>.</div>
+	
+	<div class="coursh3">Accéder aux contrôles d’un objet UserForm</div>
+		<div class="para">Jusqu’à présent, nous avons créé un objet <span class="function">UserForm</span> pour saisir de nouveaux clients, et, ouvert et fermé cet objet. Cependant, si l’utilisateur saisit des données dans l’objet <span class="function">UserForm</span>, ces dernières ne sont pas recopiées dans la liste de données Excel correspondante.</div>
+		<div class="para">La mise à jour de la liste de données Excel correspondant aux données du client doit être faite lorsque l’utilisateur clique sur le bouton OK. Elle consiste à insérer une nouvelle ligne dans la liste de données et à recopier les valeurs des contrôles de l’objet <span class="function">UserForm</span> dans les bonnes cellules de la nouvelle ligne.</div>
+		<div class="para"><b>1) </b>Aller dans l’éditeur de Visual Basic. Dans l’explorateur de projets, sélectionner l’objet <span class="function">UserForm</span> de nom <span class="function">FenetreSaisieClients</span>, ouvrir son module de code et compléter la procédure événementielle <span class="function">ButtonOK_Click</span> comme suit :</div>
+		<div class="codeExample">
+			<p><span class="keyWord">Private Sub</span> ButtonOK_Click()</p>
+			<p style="padding-left:20px;"><span class="comment">'Insertion d'une nouvelle ligne sous la ligne de titre pour insérer le nouveau client.</span></p>
+			<p style="padding-left:20px;">Sheets("Clients").Rows(2).Insert</p>
+			<p style="padding-left:20px;"><span class="comment">'Annulation du style gras "hérité" de la ligne de titre lors de l'insertion.</span></p>
+			<p style="padding-left:20px;">Range("A2:D2").Font.Bold = False</p>
+			<p style="padding-left:20px;"><span class="comment">'Insertion des valeurs des contrôles récupérées dans la boîte de dialogue.</span></p>
+			<p style="padding-left:20px;">Sheets("Clients").Range("A2").Value=Me.ComboBoxTitre.Text</p>
+			<p style="padding-left:20px;">Sheets("Clients").Range("B2").Value = Me.TextBoxNom.Text</p>
+			<p style="padding-left:20px;">Sheets("Clients").Range("C2").Value=Me.TextBoxPrénom.Text</p>
+			<p style="padding-left:20px;">Sheets("Clients").Range("D2").Value = Me.TextBoxTél.Text</p>
+			<p style="padding-left:20px;"><span class="comment">'Tri de la liste de données dans l'ordre croissant des noms (deuxième colonne).</span></p>
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> Sheets("Clients").Range("A1"). _
+			<p style="padding-left:20px;">Sort(Key1:= Sheets ("Clients").Columns("B"), Header:=xlYes)
+			<p style="padding-left:20px;"><span class="keyWord">Call</span> Unload(Me)
+			<p class="keyWord">End Sub</p>
+		</div> <!--fin de l'exemple-->
+		<div class="Warning">Si, dans les procédures événementielles <span class="function">ButtonOK_Click</span> et <span class="function">ButtonAnnuler_Click</span>, on utilise la méthode <span class="function">Hide</span> pour masquer l’objet <span class="function">UserForm</span> à la place de l’instruction <span class="function">Unload</span>, les ressources mémoires de l’objet <span class="function">UserForm</span> ne sont pas libérées. Lors d’un nouvel affichage de l’objet <span class="function">UserForm</span> avec la méthode <span class="function">Show</span>, les différents contrôles de l’objet ont alors les mêmes valeurs que lorsqu’il a été masqué.</div>
+		
+	<div class="coursh3">Afficher un objet UserForm à partir d’un bouton d’une feuille de calcul</div>
+		<div class="para">On veut pouvoir afficher la boîte de dialogue <span class="function">FenetreSaisieClients</span> à partir d'un bouton de commande de la feuille de calcul <span class="function">CLIENTS</span>.</div>
+		<div class="para"><b>1) </b>Aller dans Excel et cliquer sur l’onglet <span class="capital">Développeur</span>. Cliquer ensuite sur l'outil <span class="capital">Insérer</span>.</div>
+		<div class="para"><b>2) </b>Une barre d'outils <span class="capital">FORMULAIRES</span> apparaît. Cliquer sur l'objet <span class="capital">BOUTON</span>, puis cliquer sur la feuille de calcul <span class="function">CLIENTS</span>.</div>
+		<div class="para"><b>3) </b>Dans la nouvelle fenêtre <span class="function">AFFECTER UNE MACRO</span> qui apparaît, sélectionner la macro <span class="function">ProgPrincSaisieClients</span> et cliquer sur le bouton OK.</div>
+		<div class="para"><b>4) </b>Cliquer sur le bouton <span class="function">BOUTON 1</span> qui vient d'être créé et renommer le <span class="function">SAISIE CLIENTS</span>.
+		<div class="paraImg"><img src="../images/UserForm/tuto9.png" alt="tuto9" style="max-width:100%;"/></div>
+		<div class="para"><b>5) </b>Tester le bouton <span class="function">SAISIE CLIENTS</span>.</div>
+		
+		
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="margin-top:50px;">Ce chapitre est terminé, vous pouvez passer au <a href="Debogage.html" class="important">chapitre suivant</a>.</div>	
+		
+	<ul id="nav">		
+		<li id="navPrevious"><a href="EntreesSorties.html">&laquo;</a></li>
+		<li id="navMenu"><a href="../PagesDivers/Accueil.html">&#8801;</a></li>
+		<li id="navNext"><a href="Debogage.html">&raquo;</a></li>
+	</ul>			
+	
+	<script type="text/javascript" src="../infobulle.js"></script>
+	
+</div> <!-- fin du cours -->
+</body>
+</html>
+
+
+
+
+
+
+
+

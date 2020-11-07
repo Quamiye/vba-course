@@ -1,0 +1,201 @@
+<html lang="fr">
+<head>
+	<title>Exercices chap 6</title>
+	<link rel="stylesheet" href="../Template1CSS.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	</head>
+
+<body>
+
+<div id="lateral">
+	<!--Titre-->
+	<div id="title">Programmation VBA pour Excel</div>
+	
+	<!--Tableau menu-->
+	<table id="tabmenu">
+		<tr><td><a href="../PagesDivers/Accueil.html" target="_top">Accueil</a></td></tr>
+		<tr><td><a href="../PagesCours/SommaireCours.html" target="_top">Sommaire du cours</a></td></tr>
+		<tr><td><a href="../Exercices/SommaireExo.html" target="_top">Sommaire des exercices</a></td></tr>
+		<tr><td><a href="../PagesDivers/Resume.html" target="_blank">Résumé du cours</a></td></tr>
+		<!--<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/exercice/exercice.php?cidReq=EXCELVBA" target="_top">Quizz</a></td></tr>-->
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/forum/index.php?cidReq=EXCELVBA" target="_top">Forum</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/main/compilatio/work.php?cidReq=EXCELVBA" target="_top">Travaux</a></td></tr>
+		<tr><td><a href="https://tice.agroparistech.fr/coursenligne/courses/EXCELVBA/?id_session=0" target="_top">TICE</a></td></tr>
+	</table>
+	
+	<!--l'image renvoie sur le site d'AgroParisTech-->
+	<div class="paraImg" style="margin-top:50px;"><a href="http://www2.agroparistech.fr/" target="_blank"><img src="../images/APT.png" alt="AgroParisTech" style="max-width:90%;"/></a></div>
+	
+	<!--lien About + copyright-->
+	<div id="About"><a href="../PagesDivers/About.html" target="_top">About</a></br>&copy;AgroParisTech</div> 
+</div> <!-- fin de la barre latérale -->
+<div id="cours">
+	<div class="coursh2">Répéter les mêmes actions - Les boucles</div>
+	<div class="coursh2">Exercices</div>
+	
+	<div class="coursh3" id="exo1">Exercice 1</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une procédure qui permet de calculer les éléments de détail d’une facture. Les prix sont indiqués en colonne A et les quantités en colonne B. La procédure écrit les résultats dans la colonne C tant que les valeurs de prix (A) et de quantité (B) sont connues : les cellules ne sont pas vides et la valeur des cellules est numérique.</div>
+		<div class="paraImg"><img src="../images/Exercices/exo1Chap6.png" alt="exo1chap6" style="max-width:100%;"/></div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo1Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo1correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo1Help">
+		<div class="para">Pour vérifier si la cellule est vide, vous pourrez utiliser la méthode VBA <span class="function">IsEmpty</span>. L'instruction <span class="function">If Not IsEmpty(Range("A" & i)) Then</span> exécute les instructions du <span class="function">if</span> si la cellule Ai n'est pas vide.</div>
+		<div class="para">Pour vérifier si la valeur d'une cellule est numérique, vous pourrez utiliser la méthode VBA suivante : <span class="function">IsNumeric(Range("A" & i))</span>. Cette méthode envoie <span class="function">True</span> si la valeur de la cellule Ai est numérique.</div>
+		<p><a href="#exo1" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo1correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> detail()
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> i <span class="keyWord">As</span> Integer</p>
+			<p style="padding-left:20px;">i = 1
+			<p style="padding-left:20px;"><span class="keyWord">Do While</span> ((<span class="keyWord">Not</span> IsEmpty(Range("A" & i))) <span class="keyWord">And</span> (<span class="keyWord">Not</span> IsEmpty(Range("B" & i)))) <span class="keyWord">And</span> (IsNumeric(Range("A" & i)) <span class="keyWord">And</span> IsNumeric(Range("B" & i)))</p>
+			<p style="padding-left:40px;">Range("C" & i).Value = Range("A" & i) * Range("B" & i)</p>
+			<p style="padding-left:40px;">i = i + 1</p>
+			<p style="padding-left:20px;" class="keyWord">Loop</p>
+			<p class="keyWord">End Sub</p>
+		</div>
+		<div class="para">Les conditions du <span class="function">While</span> vérifient si les valeurs des cellules Ai et Bi existent et si elles sont numériques. Tant que les conditions sont vérifiées, on effectue le calcul et on passe à la ligne suivante.</div>
+		<p><a href="#exo1" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex1-->
+		
+		
+	<div class="coursh3" id="exo3">Exercice 2</div>
+		<!--énoncé-->
+		<div class="para">Ecrire la fonction <span class="function">compte_lignes</span> qui permet de compter le nombre de lignes de la plage de cellules <span class="function">MaPlage</span> passée en argument et la tester dans Excel.</div>
+		<div class="Warning">Votre solution ne devra pas utiliser la méthode <span class="function">Count</span> de l’objet <span class="function">Range</span>.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo3Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo3correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo3Help">
+		<div class="para">Vous pourrez utiliser la boucle <span class="function">For Each...Next</span> pour parcourir les lignes de la plage de cellules <span class="function">MaPlage</span>. Pour ce faire, vous pourrez utiliser la propriété VBA Rows : <span class="function">For Each ligne In MaPlage.Rows</span> permet de parcourir chaque ligne de la plage de cellules <span class="function">MaPlage</span>.</div>
+		<p><a href="#exo3" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo3correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Function</span> compte_ligne(MaPlage <span class="keyWord">As</span> Range) <span class="keyWord">As</span> Integer</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> cellule <span class="keyWord">As</span> Range</p>
+			<p style="padding-left:20px;">compte_ligne = 0</p>
+			<p style="padding-left:20px;"><span class="keyWord">For Each</span> ligne <span class="keyWord">In</span> MaPlage.rows</p>
+			<p style="padding-left:40px;">compte_ligne = compte_ligne + 1</p>
+			<p style="padding-left:20px;"><span class="keyWord">Next</span> ligne</p>
+			<p class="keyWord">End Function</p>
+		</div>
+		<p><a href="#exo3" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex3-->
+		
+		
+	<div class="coursh3" id="exo4">Exercice 3</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une procédure, qui pour la plage de cellules active, écrit « pleine » dans toutes les cellules vides et efface le contenu de toutes les cellules pleines.</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo4Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo4correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo4Help">
+		<div class="para">Vous pourrez utiliser la boucle <span class="function">For Each...Next</span> pour parcourir les cellules et la méthode <span class="function">IsEmpty</span> pour vérifier si une cellule est vide ou non.</div>
+		<p><a href="#exo4" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo4correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> pleine_vide()</p>
+			<p style="padding-left:20px;"><span class="keyWord">For Each</span> cellule <span class="keyWord">In</span> Selection</p>
+			<p style="padding-left:40px;"><span class="keyWord">If</span> IsEmpty(cellule) <span class="keyWord">Then</span>
+			<p style="padding-left:60px;">cellule.Value = "pleine"</p>
+			<p style="padding-left:60px;" class="keyWord">Else</p>
+			<p style="padding-left:60px;">cellule.Value = ""</p>
+			<p style="padding-left:40px;" class="keyWord">End If</p>
+			<p style="padding-left:20px;"><span class="keyword">Next</span> cellule</p>
+			<p class="keyWord">End Sub</p>
+		</div>
+		<p><a href="#exo4" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex4-->
+		
+		
+	<div class="coursh3" id="exo5">Exercice 4</div>
+		<!--énoncé-->
+		<div class="para">Que fait la boucle suivante, sachant que la fonction <span class="function">LCase</span> convertit tous les caractères en minuscules ?</div>
+		<div class="codeExample">
+			<p class="keyWord">Do</p>
+			<p style="padding-left:20px;">rep = InputBox("Voulez-vous continuer ? (O/N)")</p>
+			<p><span class="keyWord">Loop Until</span> LCase(rep) = "n"
+		</div> <!--fin de l'exemple-->
+		<div class="para">La réécrire avec l’instruction <span class="function">Do...Loop While</span></div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo5Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo5correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo5Help">
+		<div class="para">La boucle <span class="function">Do...Loop While</span> se traduit littéralement par "Faire... Tant que" alors que la boucle <span class="function">Do...Loop Until</span> se traduit littéralement par "Faire... Jusqu'à".</div>
+		<p><a href="#exo5" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo5correct">
+		<div class="codeExample">
+			<p class="keyWord">Do</p>
+			<p style="padding-left:20px;">rep = InputBox("Voulez-vous continuer ? (O/N)")</p>
+			<p><span class="keyWord">Loop Until</span> LCase(rep) = "o"
+		</div>
+		<div class="para">Pour passer d'une boucle <span class="function">Do...Loop Until</span> à une boucle <span class="function">Do...Loop While</span>, il suffit de donner la condition contraire.</div>
+		<p><a href="#exo5" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex5-->
+	
+		
+	<div class="coursh3" id="exo6">Exercice 5</div>
+		<!--énoncé-->
+		<div class="para">Ecrire une procédure qui permet de calculer la surface d’un rectangle tant que les valeurs de sa hauteur et de sa largeur situé dans les colonnes A et B sont connues (les cellules ne sont pas vides).</div>
+		<div class="exoButton">
+			<div class="showhelp"><a href="#exo6Help" class="showHelpA">Un indice ?</a></div>	
+			<div class="showCorrection"><a href="#exo6correct" class="showCorrectionA">Voir la correction</a></div>	
+		</div>
+		
+		<!--aide-->
+		<div class="exHelp" id="exo6Help">
+		<div class="para"> Vous pourrez utiliser l’instruction <span class="function">Range("A" & i)</span> pour parcourir les i lignes de la colonne A.</div>
+		<div class="para">La méthode est la même que pour l'exercice 1.</div>
+		<p><a href="#exo6" class="showHelpA">Hide</a></p></div>
+		
+		<!--correction-->
+		<div class="exCorrection" id="exo6correct">
+		<div class="codeExample">
+			<p><span class="keyWord">Sub</span> surfRect()</p>
+			<p style="padding-left:20px;"><span class="keyWord">Dim</span> i <span class="keyWord">As</span> Integer</p>
+			<p style="padding-left:20px;">i = 1</p>
+			<p style="padding-left:20px;"><span class="keyWord">Do While</span> ((<span class="keyWord">Not</span> IsEmpty(Range("A" & i))) <span class="keyWord">And</span> (<span class="keyWord">Not</span> IsEmpty(Range("B" & i))))
+			<p style="padding-left:40px;">Range("C" & i).Value = Range("A" & i) * Range("B" & i)</p>
+			<p style="padding-left:40px;">i = i + 1</p>
+			<p style="padding-left:20px;" class="keyWord">Loop</p>
+			<p class="keyWord">End Sub</p>
+		</div>
+		<p><a href="#exo6" class="showCorrectionA">Hide</a></p></div>
+	<!--fin de l'ex6-->
+	
+	
+	<div class="barre" style="margin:40px 0;"></div>
+	<div class="para" style="text-align:center;">Félicitations, vous avez terminé les exercices de ce chapitre. </div>
+	<div class="para">Vous pouvez passer au chapitre suivant en cliquant sur <a href="../PagesCours/Fonctions.html" target="_top" class="important">ce lien</a> ou sur la flèche droite en dessous. Vous pouvez également retourner sur le chapitre en cours en cliquant sur la flèche gauche.</div>	
+	
+	<ul id="nav">		
+		<li id="navPrevious"><a href="../PagesCours/Boucles.html">&laquo;</a></li>
+		<li id="navMenu"><a href="SommaireExo.html">&#8801;</a></li>
+		<li id="navNext"><a href="../PagesCours/Fonctions.html">&raquo;</a></li>
+	</ul>		
+		
+</div> <!-- fin du cours -->
+</body>
+</html>
